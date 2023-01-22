@@ -10,9 +10,10 @@ import UIKit
 
 protocol AuthorizationRouterProtocol {
     var moduleBuilder        : AuthorizationModuleBuilderProtocol? { get set }
-    init(navigationController: UINavigationController?, moduleBuilder: AuthorizationModuleBuilderProtocol?)
+    init(viewController: UIViewController?, moduleBuilder: AuthorizationModuleBuilderProtocol?)
     
     func initialView() -> UIViewController
+    func goToRegistration()
     func goBack(_ from: UIViewController?)
 }
 
@@ -24,14 +25,14 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     //MARK: - Variables
     
-    var navigationController: UINavigationController?
+    var viewController      : UIViewController?
     var moduleBuilder       : AuthorizationModuleBuilderProtocol?
     
     
     //MARK: - Init
     
-    required init(navigationController: UINavigationController?, moduleBuilder: AuthorizationModuleBuilderProtocol?) {
-        self.navigationController = navigationController
+    required init(viewController: UIViewController?, moduleBuilder: AuthorizationModuleBuilderProtocol?) {
+        self.viewController = viewController
         self.moduleBuilder = moduleBuilder
     }
     
@@ -40,10 +41,17 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     func initialView() -> UIViewController {
         if let moduleBuilder = moduleBuilder {
-            let mainViewController  = moduleBuilder.buildAuthorizationController(router: self)
+            let mainViewController  = moduleBuilder.buildLoginController(router: self)
             return mainViewController
         }
         return UIViewController()
+    }
+    
+    func goToRegistration()  {
+        if let viewController = viewController, let moduleBuilder = moduleBuilder {
+            let regController  = moduleBuilder.buildRegistrationController(router: self)
+            viewController.present(regController, animated: true)
+        }
     }
     
     func goBack(_ from: UIViewController?) {

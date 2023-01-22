@@ -11,6 +11,7 @@ import UIKit
 
 final class RegistrationController: UIViewController {
     
+    var presenter: AuthorizationPresenterProtocol!
     
     //MARK: - UI Elements
     
@@ -68,4 +69,12 @@ extension RegistrationController {
         setupStackView()
     }
     
+}
+
+//MARK: - RegistrationControllerViewProtocol Extension
+
+extension RegistrationController: AuthorizationControllerProtocol {
+    func showContent() {
+        
+    }
 }

@@ -11,6 +11,8 @@ import UIKit
 
 final class LoginController: UIViewController {
     
+    var presenter: AuthorizationPresenterProtocol!
+    
     //MARK: - UI Elements
     
     let loginLabel    = UILabel(UIFont(name: "Arial", size: 35)!, .systemGreen, .center, "Login") //
@@ -44,11 +46,32 @@ extension LoginController {
         view.addSubview(passwordField)
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
+        
+        signInButton.addTarget(self, action: #selector(signInButtonDidTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
       
         emailField.delegate    = self
         passwordField.delegate = self
     }
+    
+    //MARK: - Buttons Actions
+    
+    @objc private func signInButtonDidTapped() {
+        presenter.signInButtonDidTapped()
+    }
+    
+    @objc private func signUpButtonDidTapped() {
+        presenter.signUpButtonDidTapped()
+    }
 
+}
+
+//MARK: - LoginControllerViewProtocol Extension
+
+extension LoginController: AuthorizationControllerProtocol {
+    func showContent() {
+        
+    }
 }
 
 //MARK: - UITextFieldDelegate Extension
@@ -59,3 +82,4 @@ extension LoginController: UITextFieldDelegate {
         return true
     }
 }
+
