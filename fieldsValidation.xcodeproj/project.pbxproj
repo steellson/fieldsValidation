@@ -23,6 +23,7 @@
 		3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */; };
 		3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */; };
 		3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */; };
+		3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleBuilder.swift; sourceTree = "<group>"; };
 		3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 			children = (
 				3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */,
 				3DE6154A297D5F7100ADA1CF /* UILabel+Extension.swift */,
+				3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */,
 				3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */,
 				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
 			);
@@ -231,6 +234,7 @@
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
 				3DE6154B297D5F7100ADA1CF /* UILabel+Extension.swift in Sources */,
 				3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */,
+				3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */,
 				3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */,
 				3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */,
 				3DE61542297D584000ADA1CF /* LoginController.swift in Sources */,

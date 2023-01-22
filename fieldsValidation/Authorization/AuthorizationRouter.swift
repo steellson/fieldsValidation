@@ -9,8 +9,8 @@ import UIKit
 //MARK: - AuthorizationRouter Protocol
 
 protocol AuthorizationRouterProtocol {
-    var moduleBuilder        : AuthorizationModuleBuilderProtocol? { get set }
-    init(viewController: UIViewController?, moduleBuilder: AuthorizationModuleBuilderProtocol?)
+    var moduleBuilder : AuthorizationModuleBuilderProtocol? { get set }
+    init(moduleBuilder: AuthorizationModuleBuilderProtocol?)
     
     func initialView() -> UIViewController
     func goToRegistration()
@@ -25,14 +25,13 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     //MARK: - Variables
     
-    var viewController      : UIViewController?
-    var moduleBuilder       : AuthorizationModuleBuilderProtocol?
+    var view          : AuthorizationControllerProtocol?
+    var moduleBuilder : AuthorizationModuleBuilderProtocol?
     
     
     //MARK: - Init
     
-    required init(viewController: UIViewController?, moduleBuilder: AuthorizationModuleBuilderProtocol?) {
-        self.viewController = viewController
+    required init(moduleBuilder: AuthorizationModuleBuilderProtocol?) {
         self.moduleBuilder = moduleBuilder
     }
     
@@ -43,14 +42,19 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
         if let moduleBuilder = moduleBuilder {
             let mainViewController  = moduleBuilder.buildLoginController(router: self)
             return mainViewController
+        } else {
+            print("InitialView Debug")
         }
         return UIViewController()
     }
     
     func goToRegistration()  {
-        if let viewController = viewController, let moduleBuilder = moduleBuilder {
+        let vc = LoginController()
+        if let moduleBuilder = moduleBuilder {
             let regController  = moduleBuilder.buildRegistrationController(router: self)
-            viewController.present(regController, animated: true)
+            vc.present(regController, animated: true)
+        } else {
+            print("GoToRegistration Debug")
         }
     }
     

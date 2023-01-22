@@ -17,8 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window                = UIWindow(windowScene: windowScene)
         let moduleBuilder         = AuthorizationModuleBuilder()
-        let vc                    = LoginController()
-        let router                = AuthorizationRouter(viewController: vc, moduleBuilder: moduleBuilder)
+        let router                = AuthorizationRouter(moduleBuilder: moduleBuilder)
 
         self.window               = window
         window.rootViewController = router.initialView()

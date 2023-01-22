@@ -15,11 +15,11 @@ final class LoginController: UIViewController {
     
     //MARK: - UI Elements
     
-    let loginLabel    = UILabel(UIFont(name: "Arial", size: 35)!, .systemGreen, .center, "Login") //
+    let loginLabel    = UILabel(UIFont(name: "Helvetica-Bold", size: 40)!, .white, .center, "LOGIN")
     let emailField    = UITextField().buildAuthField(with: "Enter e-mail")
     let passwordField = UITextField().buildAuthField(with: "Enter password")
-    let signInButton  = UIButton("SignIN", .systemYellow, .white)
-    let signUpButton  = UIButton("SignUP", .systemGreen, .systemPink)
+    let signInButton  = UIButton("SIGN-IN", .red, .white)
+    let signUpButton  = UIButton("SIGN-UP", .blue, .white)
     
     
 //MARK: - Lifecycle
@@ -69,7 +69,7 @@ extension LoginController {
 //MARK: - LoginControllerViewProtocol Extension
 
 extension LoginController: AuthorizationControllerProtocol {
-    func showContent() {
+    func show() {
         
     }
 }

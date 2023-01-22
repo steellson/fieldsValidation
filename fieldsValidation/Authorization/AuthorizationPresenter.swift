@@ -9,7 +9,7 @@ import Foundation
 //MARK: - AuthorizationControllerProtocol
 
 protocol AuthorizationControllerProtocol: AnyObject {
-    func showContent()
+    func show()
 }
 
 

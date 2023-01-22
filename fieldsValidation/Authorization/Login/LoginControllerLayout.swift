@@ -24,7 +24,7 @@ extension LoginController {
         
         NSLayoutConstraint.activate([
             loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            loginLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150)
         ])
     }
     
@@ -32,7 +32,7 @@ extension LoginController {
         emailField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 30),
+            emailField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 60),
             emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailField.heightAnchor.constraint(equalToConstant: 40),
             emailField.widthAnchor.constraint(equalToConstant: view.frame.width - 60)

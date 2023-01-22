@@ -23,7 +23,7 @@ final class RegistrationFieldView: UIView {
     private var field: UITextField = {
         let field             = UITextField()
         field.borderStyle     = .line
-        field.backgroundColor = .systemGreen
+        field.backgroundColor = #colorLiteral(red: 0.5298599601, green: 0.5298599601, blue: 0.5298599601, alpha: 1)
         field.textColor       = .white
         field.leftView        = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.height))
         field.leftViewMode    = .always
