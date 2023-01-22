@@ -42,9 +42,15 @@ final class RegistrationController: UIViewController {
         stackView              = UIStackView(arrangedSubviews: arrangedSubbviews)
         stackView.axis         = .vertical
         stackView.spacing      = 10
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
 
         view.addSubview(stackView)
+    }
+    
+    //MARK: - Button actions
+    
+    @objc func signUpButtonDidTapped() {
+        print("tap")
     }
 
 }
@@ -56,6 +62,8 @@ extension RegistrationController {
     
     private func setupView() {
         view.backgroundColor = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
+        
+        signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
         
         setupStackView()
     }

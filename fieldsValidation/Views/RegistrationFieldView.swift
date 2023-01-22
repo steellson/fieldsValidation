@@ -48,7 +48,7 @@ final class RegistrationFieldView: UIView {
 //MARK: - Init
     
     init(placeholder: String?) {
-        super.init(frame: .zero)
+        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
 
         self.placeholder = field.placeholder
         setupView()
@@ -65,8 +65,11 @@ final class RegistrationFieldView: UIView {
 extension RegistrationFieldView {
     
     func setupView() {
+        
         addSubview(field)
         addSubview(title)
+        
+        field.delegate = self
         
         setupLayout()
     }
@@ -90,5 +93,14 @@ extension RegistrationFieldView {
             title.heightAnchor.constraint(equalToConstant: 10)
         ])
         
+    }
+}
+
+//MARK: - UITextFieldDelegate Extension
+
+extension RegistrationFieldView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

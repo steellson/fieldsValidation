@@ -45,7 +45,17 @@ extension LoginController {
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
       
+        emailField.delegate    = self
+        passwordField.delegate = self
     }
 
 }
 
+//MARK: - UITextFieldDelegate Extension
+
+extension LoginController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
