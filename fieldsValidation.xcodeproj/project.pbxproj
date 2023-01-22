@@ -17,6 +17,9 @@
 		3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */; };
 		3DE6154F297D5F8900ADA1CF /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */; };
 		3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61550297D61C800ADA1CF /* UIView+Extension.swift */; };
+		3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61553297D729800ADA1CF /* RegistrationController.swift */; };
+		3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */; };
+		3DE6155B297D770E00ADA1CF /* RegistrationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		3DE61550297D61C800ADA1CF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3DE61553297D729800ADA1CF /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationControllerLayout.swift; sourceTree = "<group>"; };
+		3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +73,9 @@
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE61549297D5F4700ADA1CF /* Extensions */,
 				3DE61545297D5DC100ADA1CF /* Login */,
+				3DE61552297D726200ADA1CF /* Registration */,
 				3D7EAF53297D3DC60006A39F /* Source */,
+				3DE61557297D76C400ADA1CF /* Views */,
 			);
 			path = fieldsValidation;
 			sourceTree = "<group>";
@@ -109,6 +117,23 @@
 				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		3DE61552297D726200ADA1CF /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				3DE61553297D729800ADA1CF /* RegistrationController.swift */,
+				3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		3DE61557297D76C400ADA1CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,13 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */,
 				3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */,
+				3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
 				3DE6154B297D5F7100ADA1CF /* UILabel+Extension.swift in Sources */,
 				3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */,
 				3DE61542297D584000ADA1CF /* LoginController.swift in Sources */,
 				3D7EAF41297D3C410006A39F /* SceneDelegate.swift in Sources */,
+				3DE6155B297D770E00ADA1CF /* RegistrationFieldView.swift in Sources */,
 				3DE6154F297D5F8900ADA1CF /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

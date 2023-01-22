@@ -1,0 +1,94 @@
+//
+//  RegistrationFieldView.swift
+//
+//  Created by Steellson
+//
+
+import UIKit
+
+//MARK: - RegistrationFieldViewDelegate Protocol
+
+protocol RegistrationFieldViewDelegate: AnyObject {
+    
+}
+
+//MARK: - RegistrationFieldView
+
+final class RegistrationFieldView: UIView {
+    
+    //MARK: Variables
+    
+    weak var delegate: RegistrationFieldViewDelegate?
+        
+    private var field: UITextField = {
+        let field             = UITextField()
+        field.borderStyle     = .line
+        field.backgroundColor = .systemGreen
+        field.textColor       = .white
+        field.leftView        = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: field.frame.height))
+        field.leftViewMode    = .always
+        field.placeholder     = "Field"
+        field.squadShadow()
+        return field
+    }()
+    
+    private var title: UILabel = {
+        let title           = UILabel()
+        title.tintColor     = .systemGreen
+        title.textAlignment = .left
+        title.font          = UIFont(name: "Arial", size: 16)
+        title.text          = "Required field"
+        title.squadShadow()
+        return title
+    }()
+    
+    var placeholder: String?
+    
+    
+//MARK: - Init
+    
+    init(placeholder: String?) {
+        super.init(frame: .zero)
+
+        self.placeholder = field.placeholder
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+//MARK: - RegistrationFieldView Extension
+
+extension RegistrationFieldView {
+    
+    func setupView() {
+        addSubview(field)
+        addSubview(title)
+        
+        setupLayout()
+    }
+    
+    func setupLayout() {
+        field.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            field.topAnchor.constraint(equalTo: topAnchor),
+            field.leadingAnchor.constraint(equalTo: leadingAnchor),
+            field.trailingAnchor.constraint(equalTo: trailingAnchor),
+            field.heightAnchor.constraint(equalToConstant: bounds.height / 2)
+        ])
+        
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: field.bottomAnchor, constant: 10),
+            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor),
+            title.heightAnchor.constraint(equalToConstant: 10)
+        ])
+        
+    }
+}

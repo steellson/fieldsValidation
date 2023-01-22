@@ -36,7 +36,7 @@ final class LoginController: UIViewController {
 
 extension LoginController {
     
-    func setupView() {
+    private func setupView() {
         view.backgroundColor = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
         
         view.addSubview(loginLabel)
