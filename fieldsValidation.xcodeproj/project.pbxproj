@@ -20,6 +20,10 @@
 		3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61553297D729800ADA1CF /* RegistrationController.swift */; };
 		3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */; };
 		3DE6155B297D770E00ADA1CF /* RegistrationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */; };
+		3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */; };
+		3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */; };
+		3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */; };
+		3DE61566297DAFE300ADA1CF /* AuthorizationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61565297DAFE300ADA1CF /* AuthorizationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		3DE61553297D729800ADA1CF /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationControllerLayout.swift; sourceTree = "<group>"; };
 		3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFieldView.swift; sourceTree = "<group>"; };
+		3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleBuilder.swift; sourceTree = "<group>"; };
+		3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
+		3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		3DE61565297DAFE300ADA1CF /* AuthorizationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +80,7 @@
 			children = (
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE61549297D5F4700ADA1CF /* Extensions */,
-				3DE61545297D5DC100ADA1CF /* Login */,
-				3DE61552297D726200ADA1CF /* Registration */,
+				3DE6155C297DADD700ADA1CF /* Authorization */,
 				3D7EAF53297D3DC60006A39F /* Source */,
 				3DE61557297D76C400ADA1CF /* Views */,
 			);
@@ -134,6 +141,19 @@
 				3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3DE6155C297DADD700ADA1CF /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */,
+				3DE61565297DAFE300ADA1CF /* AuthorizationController.swift */,
+				3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */,
+				3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */,
+				3DE61545297D5DC100ADA1CF /* Login */,
+				3DE61552297D726200ADA1CF /* Registration */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,9 +229,13 @@
 				3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */,
 				3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */,
 				3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */,
+				3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
+				3DE61566297DAFE300ADA1CF /* AuthorizationController.swift in Sources */,
 				3DE6154B297D5F7100ADA1CF /* UILabel+Extension.swift in Sources */,
+				3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */,
+				3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */,
 				3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */,
 				3DE61542297D584000ADA1CF /* LoginController.swift in Sources */,
 				3D7EAF41297D3C410006A39F /* SceneDelegate.swift in Sources */,
