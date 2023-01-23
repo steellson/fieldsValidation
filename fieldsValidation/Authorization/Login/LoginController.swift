@@ -11,7 +11,8 @@ import UIKit
 
 final class LoginController: UIViewController {
     
-    var presenter: AuthorizationPresenterProtocol!
+    var presenter      : AuthorizationPresenterProtocol!
+    var keyboardHelper : KeyboardContentPusher!
     
     //MARK: - UI Elements
     
@@ -48,7 +49,7 @@ final class LoginController: UIViewController {
 extension LoginController {
     
     private func setupView() {
-        view.backgroundColor = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
+        view.backgroundColor  = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
         
         view.addSubview(loginLabel)
         view.addSubview(emailField)
@@ -56,11 +57,14 @@ extension LoginController {
         view.addSubview(signInButton)
         view.addSubview(signUpButton)
         
-        signInButton.addTarget(self, action: #selector(signInButtonDidTapped), for: .touchUpInside)
-        signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
-      
         emailField.delegate    = self
         passwordField.delegate = self
+        
+        signInButton.addTarget(self, action: #selector(signInButtonDidTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
+        
+        keyboardHelper = KeyboardContentPusher(observedView: view)
+        keyboardHelper.activateObserve()
     }
 
 

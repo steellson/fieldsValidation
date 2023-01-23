@@ -24,6 +24,7 @@
 		3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */; };
 		3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */; };
 		3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */; };
+		3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardContentAssistent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				3D7EAF52297D3DAF0006A39F /* App */,
-				3DE61549297D5F4700ADA1CF /* Extensions */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
+				3DE61549297D5F4700ADA1CF /* Extensions */,
+				3DE61569297EC6B100ADA1CF /* Helpers */,
 				3D7EAF53297D3DC60006A39F /* Source */,
 				3DE61557297D76C400ADA1CF /* Views */,
 			);
@@ -156,6 +159,14 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		3DE61569297EC6B100ADA1CF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +240,7 @@
 				3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */,
 				3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */,
 				3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */,
+				3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */,
 				3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,

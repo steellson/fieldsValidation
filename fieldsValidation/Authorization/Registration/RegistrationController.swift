@@ -11,7 +11,8 @@ import UIKit
 
 final class RegistrationController: UIViewController {
     
-    var presenter: AuthorizationPresenterProtocol!
+    var presenter      : AuthorizationPresenterProtocol!
+    var keyboardHelper : KeyboardContentPusher!
     
     //MARK: - UI Elements
         
@@ -57,6 +58,9 @@ extension RegistrationController {
         view.addSubview(stackView)
         
         signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
+        
+        keyboardHelper = KeyboardContentPusher(observedView: view)
+        keyboardHelper.activateObserve()
     }
     
 }
