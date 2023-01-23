@@ -19,6 +19,7 @@ protocol AuthorizationPresenterProtocol: AnyObject {
     init(view: AuthorizationControllerProtocol, router: AuthorizationRouterProtocol)
     func signInButtonDidTapped()
     func signUpButtonDidTapped()
+    func registrationCompleted()
 }
 
 
@@ -42,7 +43,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     //MARK: - LoginController Methods
     
     func signInButtonDidTapped() {
-        print("signIn")
+        print("tap")
     }
     
     func signUpButtonDidTapped() {
@@ -51,5 +52,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     //MARK: - RegistrationController Methods
 
-   
+    func registrationCompleted() {
+        print("tap")
+    }
 }

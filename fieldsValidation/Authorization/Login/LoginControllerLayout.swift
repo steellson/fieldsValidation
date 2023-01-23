@@ -12,6 +12,7 @@ import UIKit
 extension LoginController {
     
     func setupLayout() {
+        unicornViewLayout()
         loginLabelLayout()
         emailFieldLayout()
         passwordFieldLayout()
@@ -19,12 +20,23 @@ extension LoginController {
         signUpButtonLayout()
     }
     
+    private func unicornViewLayout() {
+        unicornView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            unicornView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height * 0.2),
+            unicornView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            unicornView.widthAnchor.constraint(equalToConstant: 180),
+            unicornView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+    }
+    
     private func loginLabelLayout() {
         loginLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150)
+            loginLabel.topAnchor.constraint(equalTo: unicornView.bottomAnchor),
+            loginLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -32,7 +44,7 @@ extension LoginController {
         emailField.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            emailField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 60),
+            emailField.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 30),
             emailField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailField.heightAnchor.constraint(equalToConstant: 50),
             emailField.widthAnchor.constraint(equalToConstant: view.frame.width - 60)
@@ -54,7 +66,7 @@ extension LoginController {
         signInButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            signInButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20),
+            signInButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 30),
             signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             signInButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 2.5),
             signInButton.heightAnchor.constraint(equalTo: passwordField.heightAnchor)
@@ -65,7 +77,7 @@ extension LoginController {
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            signUpButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 20),
+            signUpButton.topAnchor.constraint(equalTo: passwordField.bottomAnchor, constant: 30),
             signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             signUpButton.widthAnchor.constraint(equalToConstant: view.bounds.width / 2.5),
             signUpButton.heightAnchor.constraint(equalTo: passwordField.heightAnchor)

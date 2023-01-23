@@ -15,6 +15,7 @@ extension UIButton {
         setTitleColor(titleColor, for: .normal)
         titleLabel?.font    = UIFont(name: "Helvetica-Bold", size: fontSize)
         backgroundColor     = bgColor
+        
 
         squadShadow()
     }

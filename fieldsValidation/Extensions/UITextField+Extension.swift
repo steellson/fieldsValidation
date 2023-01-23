@@ -20,7 +20,7 @@ extension UITextField {
         field.leftView              = spacer
         field.leftViewMode          = .always
         
-        squadShadow()
+        field.squadShadow()
         return field
     }
     

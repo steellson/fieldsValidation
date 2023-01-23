@@ -13,9 +13,11 @@ final class LoginController: UIViewController {
     
     var presenter      : AuthorizationPresenterProtocol!
     var keyboardHelper : KeyboardContentPusher!
+    let validType      : String.ValidTypes = .name
     
     //MARK: - UI Elements
     
+    let unicornView  = UIImageView(image: UIImage(named: "unicorn")!)
     let loginLabel    = UILabel(UIFont(name: "Helvetica-Bold", size: 40)!, .white, .center, "LOGIN")
     let emailField    = UITextField().buildAuthField(with: "Enter e-mail")
     let passwordField = UITextField().buildAuthField(with: "Enter password")
@@ -30,6 +32,13 @@ final class LoginController: UIViewController {
         
         setupView()
         setupLayout()
+        
+        keyboardHelper = KeyboardContentPusher(observedView: view)
+        keyboardHelper.activateObserve()
+    }
+    
+    deinit {
+        keyboardHelper.stopObverve()
     }
     
     //MARK: - Buttons Actions
@@ -51,6 +60,7 @@ extension LoginController {
     private func setupView() {
         view.backgroundColor  = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
         
+        view.addSubview(unicornView)
         view.addSubview(loginLabel)
         view.addSubview(emailField)
         view.addSubview(passwordField)
@@ -62,12 +72,7 @@ extension LoginController {
         
         signInButton.addTarget(self, action: #selector(signInButtonDidTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
-        
-        keyboardHelper = KeyboardContentPusher(observedView: view)
-        keyboardHelper.activateObserve()
     }
-
-
 }
 
 //MARK: - LoginControllerViewProtocol Extension
@@ -85,5 +90,6 @@ extension LoginController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+
 }
 

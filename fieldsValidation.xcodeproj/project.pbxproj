@@ -19,12 +19,12 @@
 		3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61550297D61C800ADA1CF /* UIView+Extension.swift */; };
 		3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61553297D729800ADA1CF /* RegistrationController.swift */; };
 		3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */; };
-		3DE6155B297D770E00ADA1CF /* RegistrationFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */; };
 		3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */; };
 		3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */; };
 		3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */; };
 		3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */; };
 		3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */; };
+		3DE61570297EE95000ADA1CF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6156F297EE95000ADA1CF /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,12 +42,12 @@
 		3DE61550297D61C800ADA1CF /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		3DE61553297D729800ADA1CF /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		3DE61555297D740100ADA1CF /* RegistrationControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationControllerLayout.swift; sourceTree = "<group>"; };
-		3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFieldView.swift; sourceTree = "<group>"; };
 		3DE6155D297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationModuleBuilder.swift; sourceTree = "<group>"; };
 		3DE6155F297DAE2000ADA1CF /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		3DE61563297DAF9900ADA1CF /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardContentAssistent.swift; sourceTree = "<group>"; };
+		3DE6156F297EE95000ADA1CF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,6 @@
 				3DE6156E297ED9CA00ADA1CF /* Extensions */,
 				3DE61569297EC6B100ADA1CF /* Helpers */,
 				3D7EAF53297D3DC60006A39F /* Source */,
-				3DE61557297D76C400ADA1CF /* Views */,
 			);
 			path = fieldsValidation;
 			sourceTree = "<group>";
@@ -127,14 +126,6 @@
 			path = Registration;
 			sourceTree = "<group>";
 		};
-		3DE61557297D76C400ADA1CF /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3DE6155A297D770E00ADA1CF /* RegistrationFieldView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		3DE6155C297DADD700ADA1CF /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +154,7 @@
 				3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */,
 				3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */,
 				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
+				3DE6156F297EE95000ADA1CF /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,13 +237,13 @@
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
 				3DE6154B297D5F7100ADA1CF /* UILabel+Extension.swift in Sources */,
+				3DE61570297EE95000ADA1CF /* String+Extension.swift in Sources */,
 				3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */,
 				3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */,
 				3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */,
 				3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */,
 				3DE61542297D584000ADA1CF /* LoginController.swift in Sources */,
 				3D7EAF41297D3C410006A39F /* SceneDelegate.swift in Sources */,
-				3DE6155B297D770E00ADA1CF /* RegistrationFieldView.swift in Sources */,
 				3DE6154F297D5F8900ADA1CF /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

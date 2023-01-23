@@ -13,6 +13,6 @@ extension UIView {
     func squadShadow() {
         layer.shadowOpacity = 1
         layer.shadowColor   = .init(red: 0, green: 0, blue: 0, alpha: 1)
-        layer.shadowOffset  = .init(width: 5, height: 5)
+        layer.shadowOffset  = .init(width: 3, height: 5)
     }
 }
