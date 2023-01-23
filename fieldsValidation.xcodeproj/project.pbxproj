@@ -82,7 +82,7 @@
 			children = (
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
-				3DE61549297D5F4700ADA1CF /* Extensions */,
+				3DE6156E297ED9CA00ADA1CF /* Extensions */,
 				3DE61569297EC6B100ADA1CF /* Helpers */,
 				3D7EAF53297D3DC60006A39F /* Source */,
 				3DE61557297D76C400ADA1CF /* Views */,
@@ -116,18 +116,6 @@
 				3DE61543297D5BA100ADA1CF /* LoginControllerLayout.swift */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		3DE61549297D5F4700ADA1CF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */,
-				3DE6154A297D5F7100ADA1CF /* UILabel+Extension.swift */,
-				3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */,
-				3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */,
-				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 		3DE61552297D726200ADA1CF /* Registration */ = {
@@ -165,6 +153,18 @@
 				3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3DE6156E297ED9CA00ADA1CF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */,
+				3DE6154A297D5F7100ADA1CF /* UILabel+Extension.swift */,
+				3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */,
+				3DE6154C297D5F7C00ADA1CF /* UITextField+Extension.swift */,
+				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
