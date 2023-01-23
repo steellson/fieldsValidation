@@ -18,8 +18,8 @@ final class LoginController: UIViewController {
     let loginLabel    = UILabel(UIFont(name: "Helvetica-Bold", size: 40)!, .white, .center, "LOGIN")
     let emailField    = UITextField().buildAuthField(with: "Enter e-mail")
     let passwordField = UITextField().buildAuthField(with: "Enter password")
-    let signInButton  = UIButton("SIGN-IN", .red, .white)
-    let signUpButton  = UIButton("SIGN-UP", .blue, .white)
+    let signInButton  = UIButton("SIGN-IN", .red, .white, 20)
+    let signUpButton  = UIButton("SIGN-UP", .blue, .white, 20)
     
     
 //MARK: - Lifecycle
@@ -30,7 +30,16 @@ final class LoginController: UIViewController {
         setupView()
         setupLayout()
     }
-
+    
+    //MARK: - Buttons Actions
+    
+    @objc private func signInButtonDidTapped() {
+        presenter.signInButtonDidTapped()
+    }
+    
+    @objc private func signUpButtonDidTapped() {
+        presenter.signUpButtonDidTapped()
+    }
 }
 
 
@@ -53,16 +62,7 @@ extension LoginController {
         emailField.delegate    = self
         passwordField.delegate = self
     }
-    
-    //MARK: - Buttons Actions
-    
-    @objc private func signInButtonDidTapped() {
-        presenter.signInButtonDidTapped()
-    }
-    
-    @objc private func signUpButtonDidTapped() {
-        presenter.signUpButtonDidTapped()
-    }
+
 
 }
 

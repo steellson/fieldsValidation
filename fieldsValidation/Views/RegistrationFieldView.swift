@@ -34,9 +34,9 @@ final class RegistrationFieldView: UIView {
     
     private var title: UILabel = {
         let title           = UILabel()
-        title.tintColor     = .systemGreen
+        title.textColor     = #colorLiteral(red: 0.4986975789, green: 0.910484314, blue: 0.5441249609, alpha: 0.6792949235)
         title.textAlignment = .left
-        title.font          = UIFont(name: "Arial", size: 16)
+        title.font          = UIFont(name: "Arial", size: 15)
         title.text          = "Required field"
         title.squadShadow()
         return title
@@ -48,7 +48,7 @@ final class RegistrationFieldView: UIView {
 //MARK: - Init
     
     init(placeholder: String?) {
-        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
+        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
 
         self.placeholder = field.placeholder
         setupView()
@@ -87,7 +87,7 @@ extension RegistrationFieldView {
         title.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: field.bottomAnchor, constant: 10),
+            title.topAnchor.constraint(equalTo: field.bottomAnchor, constant: 7),
             title.leadingAnchor.constraint(equalTo: leadingAnchor),
             title.trailingAnchor.constraint(equalTo: trailingAnchor),
             title.heightAnchor.constraint(equalToConstant: 10)

@@ -22,7 +22,7 @@ extension RegistrationController {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             stackView.widthAnchor.constraint(equalToConstant: view.bounds.width - 30),
-            stackView.heightAnchor.constraint(equalToConstant: view.bounds.height - 210)
+            stackView.heightAnchor.constraint(equalToConstant: view.bounds.height - 170)
         ])
     }
 }

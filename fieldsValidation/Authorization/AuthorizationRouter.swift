@@ -9,12 +9,12 @@ import UIKit
 //MARK: - AuthorizationRouter Protocol
 
 protocol AuthorizationRouterProtocol {
-    var moduleBuilder : AuthorizationModuleBuilderProtocol? { get set }
-    init(moduleBuilder: AuthorizationModuleBuilderProtocol?)
+    var moduleBuilder        : AuthorizationModuleBuilderProtocol? { get set }
+    var navigationController : UINavigationController? { get set }
     
-    func initialView() -> UIViewController
+    func initialView()
     func goToRegistration()
-    func goBack(_ from: UIViewController?)
+    func goBack()
 }
 
 
@@ -25,44 +25,41 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     //MARK: - Variables
     
-    var view          : AuthorizationControllerProtocol?
-    var moduleBuilder : AuthorizationModuleBuilderProtocol?
-    
+    var moduleBuilder        : AuthorizationModuleBuilderProtocol?
+    var navigationController : UINavigationController?
     
     //MARK: - Init
     
-    required init(moduleBuilder: AuthorizationModuleBuilderProtocol?) {
-        self.moduleBuilder = moduleBuilder
+    init(moduleBuilder: AuthorizationModuleBuilderProtocol?, navigationController: UINavigationController?) {
+        self.moduleBuilder        = moduleBuilder
+        self.navigationController = navigationController
     }
     
     
     //MARK: - Methods
     
-    func initialView() -> UIViewController {
-        if let moduleBuilder = moduleBuilder {
-            let mainViewController  = moduleBuilder.buildLoginController(router: self)
-            return mainViewController
+    func initialView() {
+        if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
+            let loginController  = moduleBuilder.buildLoginController(router: self)
+            navigationController.pushViewController(loginController, animated: true)
         } else {
             print("InitialView Debug")
         }
-        return UIViewController()
     }
     
     func goToRegistration()  {
-        let vc = LoginController()
-        if let moduleBuilder = moduleBuilder {
-            let regController  = moduleBuilder.buildRegistrationController(router: self)
-            vc.present(regController, animated: true)
+        if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
+            navigationController.present(moduleBuilder.buildRegistrationController(router: self), animated: true)
         } else {
             print("GoToRegistration Debug")
         }
     }
     
-    func goBack(_ from: UIViewController?) {
-        if let controller = from {
-            controller.dismiss(animated: true)
+    func goBack() {
+        if let navigationController = navigationController {
+            navigationController.dismiss(animated: true)
         } else {
-            print("GoBackButtonError")
+            print("GoBackButton Debug")
         }
     }
 }
