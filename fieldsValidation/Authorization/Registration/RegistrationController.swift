@@ -16,19 +16,20 @@ final class RegistrationController: UIViewController {
     
     //MARK: - UI Elements
     
-    let registrationTitle = UILabel(UIFont(name: "Helvetica-Bold", size: 40)!, .white, .center, "Registration")
-    let firstNameField    = UITextField().buildAuthField(with: "First Name")
-    var firstNameLabel    = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
-    let secondNameField   = UITextField().buildAuthField(with: "Second Name")
-    var secondNameLabel   = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
-    let birthdayField     = UITextField().buildAuthField(with: "Birthday")
-    var birthdayLabel     = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
-    let phoneField        = UITextField().buildAuthField(with: "Phone")
-    var phoneLabel        = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
-    let emailField        = UITextField().buildAuthField(with: "Email")
-    var emailLabel        = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
-    let passwordField     = UITextField().buildAuthField(with: "Password")
-    var passwordLabel     = UILabel(UIFont(name: "Helvetica-Bold", size: 15)!, #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), .left, "Required field")
+    let registrationTitle = UILabel(Resources.RFonts.helveticaBold40, .white, .center, "Registration")
+    let firstNameField    = UITextField().buildAuthField(with: "First Name", Resources.RColors.registrationFieldGrayColor)
+    var firstNameLabel    = UILabel(Resources.RFonts.helveticaBold15,Resources.RColors.validationLabelColor, .left, "Required field")
+    let secondNameField   = UITextField().buildAuthField(with: "Second Name", Resources.RColors.registrationFieldGrayColor)
+    var secondNameLabel   = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let birthdayField     = UITextField().buildAuthField(with: "Birthday", Resources.RColors.registrationFieldGrayColor)
+    var birthdayLabel     = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let ageDatePicker     = UIDatePicker()
+    let phoneField        = UITextField().buildAuthField(with: "Phone", Resources.RColors.registrationFieldGrayColor, false, .numberPad)
+    var phoneLabel        = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let emailField        = UITextField().buildAuthField(with: "Email", Resources.RColors.registrationFieldGrayColor)
+    var emailLabel        = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let passwordField     = UITextField().buildAuthField(with: "Password", Resources.RColors.registrationFieldGrayColor, true)
+    var passwordLabel     = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
     var signUpButton      = UIButton("SIGN-UP", .blue, .white, 24)
     
     lazy var stackView = UIStackView([
@@ -50,7 +51,7 @@ final class RegistrationController: UIViewController {
         setDelegates()
         setupLayout()
         
-        keyboardHelper = KeyboardContentPusher(observedView: view)
+        keyboardHelper = KeyboardContentPusher(observedView: view, pushMultiplier: 1.95)
         keyboardHelper.activateObserve()
     }
     
@@ -63,7 +64,7 @@ final class RegistrationController: UIViewController {
     //MARK: - Button actions
     
     @objc func signUpButtonDidTapped() {
-        presenter.registrationCompleted()
+        presenter.signUpButtonDidTapped(on: self)
     }
 }
 
@@ -73,23 +74,25 @@ final class RegistrationController: UIViewController {
 extension RegistrationController {
     
     private func setupView() {
-        view.backgroundColor = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
+        view.backgroundColor = Resources.RColors.defaultBackgroundColor
         
         view.addSubview(registrationTitle)
         view.addSubview(stackView)
         view.addSubview(signUpButton)
-    
+        
+        birthdayField.leftView = ageDatePicker
+        
         signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
     }
     
     private func setDelegates() {
-        firstNameField.delegate   = self
+        firstNameField.delegate  = self
         secondNameField.delegate = self
         birthdayField.delegate   = self
         phoneField.delegate      = self
         emailField.delegate      = self
         passwordField.delegate   = self
-
+        
     }
 }
 
@@ -103,16 +106,16 @@ extension RegistrationController: AuthorizationControllerProtocol {
 
 
 //MARK: - RegistrationController Validation Extension
-    
+
 extension RegistrationController {
     
     private func set(textField: UITextField,
-             label: UILabel,
-             validType: String.ValidTypes,
-             validMessage: String,
-             wrongMessage: String,
-             string: String,
-             range: NSRange) {
+                     label: UILabel,
+                     validType: String.ValidTypes,
+                     validMessage: String,
+                     wrongMessage: String,
+                     string: String,
+                     range: NSRange) {
         
         let text = (textField.text ?? "") + string
         let result: String
@@ -128,11 +131,42 @@ extension RegistrationController {
         
         if result.isValid(validType: validType) {
             label.text = validMessage
-            label.textColor = #colorLiteral(red: 0.02528674155, green: 0.901473999, blue: 0.9878204465, alpha: 1)
+            label.textColor = Resources.RColors.validLabelColor
         } else {
             label.text = wrongMessage
-            label.textColor = #colorLiteral(red: 0.7254902124, green: 0, blue: 0.09803921729, alpha: 1)
+            label.textColor = Resources.RColors.invalidLabelColor
         }
+    }
+    
+    private func setPhoneNumberMask(on textField: UITextField, mask: String, string: String, range: NSRange) -> String {
+        let text   = textField.text ?? ""
+        let phone  = (text as NSString).replacingCharacters(in: range, with: string)
+        let number = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index  = number.startIndex
+        
+        for char in mask where index < number.endIndex {
+            if char == "X" {
+                result.append(number[index])
+                index = number.index(after: index)
+            } else {
+                result.append(char)
+            }
+        }
+        return result
+    }
+    
+    private func ageIsValid() -> Bool {
+        
+        let calendar = NSCalendar.current
+        let dateNow  = Date()
+        let birthday = ageDatePicker.date
+        
+        let age      = calendar.dateComponents([.year], from: birthday, to: dateNow)
+        let ageYear  = age.year
+        
+        guard let ageUser = ageYear else { return false }
+        return (ageUser < 18 ? false : true)
     }
 }
 
@@ -148,12 +182,12 @@ extension RegistrationController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
         case firstNameField: set(textField: firstNameField,
-                                label: firstNameLabel,
-                                validType: .name,
-                                validMessage: "Name is valid!",
-                                wrongMessage: "Name is invalid!",
-                                string: string,
-                                range: range)
+                                 label: firstNameLabel,
+                                 validType: .name,
+                                 validMessage: "Name is valid!",
+                                 wrongMessage: "Name is invalid!",
+                                 string: string,
+                                 range: range)
         case secondNameField: set(textField: secondNameField,
                                   label: secondNameLabel,
                                   validType: .name,
@@ -163,18 +197,15 @@ extension RegistrationController: UITextFieldDelegate {
                                   range: range)
         case birthdayField: set(textField: birthdayField,
                                 label: birthdayLabel,
-                                validType: .birthDate,
+                                validType: .name,
                                 validMessage: "Birthday is valid!",
-                                wrongMessage: "Birthday is invalid!",
+                                wrongMessage: "Write a month!",
                                 string: string,
                                 range: range)
-        case phoneField: set(textField: phoneField,
-                             label: phoneLabel,
-                             validType: .phone,
-                             validMessage: "Phone is valid!",
-                             wrongMessage: "Phone is invalid!",
-                             string: string,
-                             range: range)
+        case phoneField: phoneField.text = setPhoneNumberMask(on: phoneField,
+                                                              mask: "+X (XXX) XXX-XX-XX",
+                                                              string: string,
+                                                              range: range)
         case emailField: set(textField: emailField,
                              label: emailLabel,
                              validType: .email,
@@ -195,5 +226,5 @@ extension RegistrationController: UITextFieldDelegate {
         
         return false
     }
- 
+    
 }

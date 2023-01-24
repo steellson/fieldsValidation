@@ -11,18 +11,16 @@ extension String {
     enum ValidTypes {
         case name
         case secondName
-        case birthDate
         case phone
         case email
         case password
     }
     
     enum RegExp: String {
-        case name = "[a-zA-Z]{1,}"
-        case birthDate
-        case phone
-        case email
-        case password
+        case name      = "[a-zA-Z]{1,}"
+        case phone     = "[0-9]{10,}"
+        case email     = "[a-zA-Z0-9._]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}"
+        case password  = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,16}"
     }
     
     func isValid(validType: ValidTypes) -> Bool {
@@ -34,8 +32,6 @@ extension String {
             regexp = RegExp.name.rawValue
         case .secondName:
             regexp = RegExp.name.rawValue
-        case .birthDate:
-            regexp = RegExp.birthDate.rawValue
         case .phone:
             regexp = RegExp.phone.rawValue
         case .email:

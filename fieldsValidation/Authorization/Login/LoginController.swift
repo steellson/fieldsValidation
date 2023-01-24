@@ -17,10 +17,10 @@ final class LoginController: UIViewController {
     
     //MARK: - UI Elements
     
-    let unicornView  = UIImageView(image: UIImage(named: "unicorn")!)
-    let loginLabel    = UILabel(UIFont(name: "Helvetica-Bold", size: 40)!, .white, .center, "LOGIN")
-    let emailField    = UITextField().buildAuthField(with: "Enter e-mail")
-    let passwordField = UITextField().buildAuthField(with: "Enter password")
+    let unicornView   = UIImageView(image: Resources.RImages.unicornImage)
+    let loginLabel    = UILabel(Resources.RFonts.helveticaBold40, .white, .center, "LOGIN")
+    let emailField    = UITextField().buildAuthField(with: "Enter e-mail", Resources.RColors.defaultTextFieldGrayColor)
+    let passwordField = UITextField().buildAuthField(with: "Enter password", Resources.RColors.defaultTextFieldGrayColor)
     let signInButton  = UIButton("SIGN-IN", .red, .white, 20)
     let signUpButton  = UIButton("SIGN-UP", .blue, .white, 20)
     
@@ -48,7 +48,7 @@ final class LoginController: UIViewController {
     }
     
     @objc private func signUpButtonDidTapped() {
-        presenter.signUpButtonDidTapped()
+        presenter.signUpButtonDidTapped(on: self)
     }
 }
 
@@ -58,7 +58,7 @@ final class LoginController: UIViewController {
 extension LoginController {
     
     private func setupView() {
-        view.backgroundColor  = #colorLiteral(red: 0.5557171106, green: 0.5678942204, blue: 0.7974012494, alpha: 1)
+        view.backgroundColor  = Resources.RColors.defaultBackgroundColor
         
         view.addSubview(unicornView)
         view.addSubview(loginLabel)

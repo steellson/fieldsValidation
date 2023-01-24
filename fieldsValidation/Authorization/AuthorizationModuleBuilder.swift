@@ -20,15 +20,17 @@ protocol AuthorizationModuleBuilderProtocol: AuthorizationModuleBuilder {
 final class AuthorizationModuleBuilder: AuthorizationModuleBuilderProtocol {
     
     public func buildLoginController(router: AuthorizationRouterProtocol) -> UIViewController {
-         let view        = LoginController()
-         let presenter   = AuthorizationPresenter(view: view, router: router)
-         view.presenter  = presenter
+         let view                = LoginController()
+         let userDefaultsManager = UserDefaultsManager()
+         let presenter           = AuthorizationPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
+         view.presenter          = presenter
          return view
      }
     
     public func buildRegistrationController(router: AuthorizationRouterProtocol) -> UIViewController {
          let view        = RegistrationController()
-         let presenter   = AuthorizationPresenter(view: view, router: router)
+         let userDefaultsManager = UserDefaultsManager()
+         let presenter   = AuthorizationPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
          view.presenter  = presenter
          return view
      }
