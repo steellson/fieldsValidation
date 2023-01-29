@@ -59,18 +59,26 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 
                 print("Success login of \(user!)")
             } else {
-                print("Password error")
+                let alert  = AlertController(header: nil,
+                                             message: Resources.Strings.loginAlertWrongMailOrPass.rawValue,
+                                             actionPossibility: true)
+                controller.present(alert, animated: true)
             }
         } else {
             controller.emailField.textColor = .red
-            print("Failed!")
+            
+            let alert  = AlertController(header: Resources.Strings.loginAlertUserNotFoundTitle.rawValue,
+                                         message: Resources.Strings.loginAlertUserNotFound.rawValue,
+                                         actionPossibility: true)
+            controller.present(alert, animated: true)
+            
         }
     }
     
     func signUpButtonDidTapped(on view: AuthorizationControllerProtocol) {
         if let _ = view as? LoginController {
             router.goToRegistration()
-
+            
         } else if let view = view as? RegistrationController {
             let firstNameText  = view.firstNameLabel.text ?? ""
             let secondNameText = view.secondNameLabel.text ?? ""
@@ -90,20 +98,20 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                                              age: view.ageDatePicker.date,
                                              email: emailText,
                                              password: passwordText)
-                
-                let alertMaster = AlertMaster(view: view)
-                alertMaster.showAlert(with: "",
-                                      alertMessage: Resources.Strings.registrationCompletedAlertMessage.rawValue,
-                                      actionTitle: Resources.Strings.registrationCompletedActionTItle.rawValue)
+            
+                let alert  = AlertController(header: nil,
+                                             message: Resources.Strings.registrationCompletedAlertMessage.rawValue,
+                                             actionPossibility: true)
+                view.present(alert, animated: true)
             } else {
-                let alertMaster = AlertMaster(view: view)
-                alertMaster.showAlert(with: Resources.Strings.registrationWrongAlertTitle.rawValue,
-                                      alertMessage: Resources.Strings.registrationWrongAlertMessage.rawValue,
-                                      actionTitle: Resources.Strings.registrationTryAgainAction.rawValue)
+                let alert  = AlertController(header: Resources.Strings.registrationWrongAlertTitle.rawValue,
+                                             message: Resources.Strings.registrationWrongAlertMessage.rawValue,
+                                             actionPossibility: true)
+                view.present(alert, animated: true)
             }
         }
     }
-
+    
 }
 
 

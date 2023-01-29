@@ -28,7 +28,7 @@
 		3DE6157329801B6900ADA1CF /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6157229801B6900ADA1CF /* Resources.swift */; };
 		3DE615762980471900ADA1CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE615752980471900ADA1CF /* User.swift */; };
 		3DE61579298047BB00ADA1CF /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE61578298047BB00ADA1CF /* UserDefaultsManager.swift */; };
-		3DE6157B29805BCA00ADA1CF /* AlertMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6157A29805BCA00ADA1CF /* AlertMaster.swift */; };
+		3DE6157F29857BC600ADA1CF /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE6157E29857BC600ADA1CF /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +55,7 @@
 		3DE6157229801B6900ADA1CF /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		3DE615752980471900ADA1CF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3DE61578298047BB00ADA1CF /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		3DE6157A29805BCA00ADA1CF /* AlertMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMaster.swift; sourceTree = "<group>"; };
+		3DE6157E29857BC600ADA1CF /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,7 @@
 		3DE61569297EC6B100ADA1CF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3DE6157A29805BCA00ADA1CF /* AlertMaster.swift */,
+				3DE6157E29857BC600ADA1CF /* AlertController.swift */,
 				3DE6156C297EC75600ADA1CF /* KeyboardContentAssistent.swift */,
 			);
 			path = Helpers;
@@ -267,9 +267,9 @@
 			files = (
 				3DE61556297D740100ADA1CF /* RegistrationControllerLayout.swift in Sources */,
 				3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */,
+				3DE6157F29857BC600ADA1CF /* AlertController.swift in Sources */,
 				3DE61554297D729800ADA1CF /* RegistrationController.swift in Sources */,
 				3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */,
-				3DE6157B29805BCA00ADA1CF /* AlertMaster.swift in Sources */,
 				3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */,
 				3DE61579298047BB00ADA1CF /* UserDefaultsManager.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
