@@ -78,8 +78,12 @@ extension LoginController {
 //MARK: - LoginControllerViewProtocol Extension
 
 extension LoginController: AuthorizationControllerProtocol {
-    func show() {
-        
+    func startLoading() {
+        //
+    }
+    
+    func finishLoading() {
+        //
     }
 }
 

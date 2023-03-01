@@ -17,20 +17,20 @@ final class RegistrationController: UIViewController {
     //MARK: - UI Elements
     
     let registrationTitle = UILabel(Resources.RFonts.helveticaBold40, .white, .center, "Registration")
-    let firstNameField    = UITextField().buildAuthField(with: "First Name", Resources.RColors.registrationFieldGrayColor)
-    var firstNameLabel    = UILabel(Resources.RFonts.helveticaBold15,Resources.RColors.validationLabelColor, .left, "Required field")
-    let secondNameField   = UITextField().buildAuthField(with: "Second Name", Resources.RColors.registrationFieldGrayColor)
-    var secondNameLabel   = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let birthdayField     = UITextField().buildAuthField(with: "Birthday", Resources.RColors.registrationFieldGrayColor)
-    var birthdayLabel     = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let ageDatePicker     = UIDatePicker()
-    let phoneField        = UITextField().buildAuthField(with: "Phone", Resources.RColors.registrationFieldGrayColor, false, .numberPad)
-    var phoneLabel        = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let emailField        = UITextField().buildAuthField(with: "Email", Resources.RColors.registrationFieldGrayColor)
-    var emailLabel        = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let passwordField     = UITextField().buildAuthField(with: "Password", Resources.RColors.registrationFieldGrayColor, true)
-    var passwordLabel     = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    var signUpButton      = UIButton("SIGN-UP", .blue, .white, 24)
+    let firstNameField = UITextField().buildAuthField(with: "First Name", Resources.RColors.registrationFieldGrayColor)
+    var firstNameLabel = UILabel(Resources.RFonts.helveticaBold15,Resources.RColors.validationLabelColor, .left, "Required field")
+    let secondNameField = UITextField().buildAuthField(with: "Second Name", Resources.RColors.registrationFieldGrayColor)
+    var secondNameLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let birthdayField = UITextField().buildAuthField(with: "Birthday", Resources.RColors.registrationFieldGrayColor)
+    var birthdayLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let ageDatePicker = UIDatePicker()
+    let phoneField = UITextField().buildAuthField(with: "Phone", Resources.RColors.registrationFieldGrayColor, false, .numberPad)
+    var phoneLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let emailField = UITextField().buildAuthField(with: "Email", Resources.RColors.registrationFieldGrayColor)
+    var emailLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let passwordField = UITextField().buildAuthField(with: "Password", Resources.RColors.registrationFieldGrayColor, true)
+    var passwordLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    var signUpButton = UIButton("SIGN-UP", .blue, .white, 24)
     
     lazy var stackView = UIStackView([
         firstNameField,   firstNameLabel,
@@ -99,8 +99,13 @@ extension RegistrationController {
 //MARK: - RegistrationControllerViewProtocol Extension
 
 extension RegistrationController: AuthorizationControllerProtocol {
-    func show() {
-        
+    
+    func startLoading() {
+        //
+    }
+    
+    func finishLoading() {
+        //
     }
 }
 
@@ -138,23 +143,18 @@ extension RegistrationController {
         }
     }
     
-    private func setPhoneNumberMask(on textField: UITextField, mask: String, string: String, range: NSRange) -> String {
-        let text   = textField.text ?? ""
-        let phone  = (text as NSString).replacingCharacters(in: range, with: string)
-        let number = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        var result = ""
-        var index  = number.startIndex
+    private func setPhoneNumberMask(on textField: UITextField,
+                                    mask: String,
+                                    string: String,
+                                    range: NSRange) -> String {
         
-        for char in mask where index < number.endIndex {
-            if char == "X" {
-                result.append(number[index])
-                index = number.index(after: index)
-            } else {
-                result.append(char)
-            }
-        }
-        return result
+        let text   = textField.text ?? ""
+        return presenter.setupNumberMask(with: text,
+                                  string: string,
+                                  mask: mask,
+                                  range: range)
     }
+    
     
     private func ageIsValid() -> Bool {
         
@@ -179,7 +179,10 @@ extension RegistrationController: UITextFieldDelegate {
         return true
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        
         switch textField {
         case firstNameField: set(textField: firstNameField,
                                  label: firstNameLabel,

@@ -9,16 +9,24 @@ import Foundation
 //MARK: - AuthorizationControllerProtocol
 
 protocol AuthorizationControllerProtocol: AnyObject {
-    func show()
+    func startLoading()
+    func finishLoading()
 }
 
 
 //MARK: - AuthorizationPresenterProtocol
 
 protocol AuthorizationPresenterProtocol: AnyObject {
-    init(view: AuthorizationControllerProtocol, userDefaultsManager: UserDefaultsManagerProtocol, router: AuthorizationRouterProtocol)
+    init(view: AuthorizationControllerProtocol,
+         userDefaultsManager: UserDefaultsManagerProtocol,
+         router: AuthorizationRouterProtocol)
+    
     func signInButtonDidTapped()
     func signUpButtonDidTapped(on view: AuthorizationControllerProtocol)
+    func setupNumberMask(with text: String,
+                         string: String,
+                         mask: String,
+                         range: NSRange) -> String
 }
 
 
@@ -112,6 +120,26 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
         }
     }
     
+    func setupNumberMask(with text: String,
+                       string: String,
+                       mask: String,
+                       range: NSRange) -> String {
+        
+        let phone  = (text as NSString).replacingCharacters(in: range, with: string)
+        let number = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index  = number.startIndex
+        
+        for char in mask where index < number.endIndex {
+            if char == "X" {
+                result.append(number[index])
+                index = number.index(after: index)
+            } else {
+                result.append(char)
+            }
+        }
+        return result
+    }
 }
 
 
