@@ -30,7 +30,7 @@ final class RegistrationController: UIViewController {
     var emailLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
     let passwordField = UITextField().buildAuthField(with: "Password", Resources.RColors.registrationFieldGrayColor, true)
     var passwordLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    var signUpButton = UIButton("SIGN-UP", .blue, .white, 24)
+    var goRegButton = UIButton("GO REG!", .blue, .white, 24)
     
     lazy var stackView = UIStackView([
         firstNameField,   firstNameLabel,
@@ -63,8 +63,8 @@ final class RegistrationController: UIViewController {
     
     //MARK: - Button actions
     
-    @objc func signUpButtonDidTapped() {
-        presenter.signUpButtonDidTapped(on: self)
+    @objc func goRegButtonDidTapped() {
+        presenter.goRegButtonDidTapped()
     }
 }
 
@@ -78,11 +78,11 @@ extension RegistrationController {
         
         view.addSubview(registrationTitle)
         view.addSubview(stackView)
-        view.addSubview(signUpButton)
+        view.addSubview(goRegButton)
         
         birthdayField.leftView = ageDatePicker
         
-        signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)
+        goRegButton.addTarget(self, action: #selector(goRegButtonDidTapped), for: .touchUpInside)
     }
     
     private func setDelegates() {
@@ -107,6 +107,11 @@ extension RegistrationController: AuthorizationControllerProtocol {
     func finishLoading() {
         //
     }
+    
+    func signInDidTapped() {
+        print("not configure yet")
+    }
+    
 }
 
 
@@ -226,7 +231,7 @@ extension RegistrationController: UITextFieldDelegate {
         default:
             print("TextField validation error")
         }
-        
+                
         return false
     }
     

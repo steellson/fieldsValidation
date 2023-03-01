@@ -27,12 +27,12 @@ extension RegistrationController {
     }
     
     private func signUpButtonLayout() {
-        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        goRegButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            signUpButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.08)),
-            signUpButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -260),
-            signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            goRegButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height * 0.08)),
+            goRegButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -260),
+            goRegButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -43,7 +43,7 @@ extension RegistrationController {
             stackView.topAnchor.constraint(equalTo: registrationTitle.bottomAnchor, constant: 40),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -30),
-            stackView.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -25)
+            stackView.bottomAnchor.constraint(equalTo: goRegButton.topAnchor, constant: -25)
         ])
     }
 }

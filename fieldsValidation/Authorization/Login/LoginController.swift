@@ -48,7 +48,7 @@ final class LoginController: UIViewController {
     }
     
     @objc private func signUpButtonDidTapped() {
-        presenter.signUpButtonDidTapped(on: self)
+        presenter.signUpButtonDidTapped()
     }
 }
 
@@ -84,6 +84,35 @@ extension LoginController: AuthorizationControllerProtocol {
     
     func finishLoading() {
         //
+    }
+    
+    func signInDidTapped() {
+        let mail     = emailField.text ?? ""
+        let password = passwordField.text ?? ""
+        let user     = presenter.findUser(by: mail)
+        
+        if user != nil  {
+            emailField.textColor = .systemGreen
+            if user?.password == password {
+                
+                /////// PLACE FOR TRANSITION //////////
+                
+                print("Success login of \(user!)")
+            } else {
+                let alert  = AlertController(header: nil,
+                                             message: Resources.Strings.loginAlertWrongMailOrPass.rawValue,
+                                             actionPossibility: true)
+                present(alert, animated: true)
+            }
+        } else {
+            emailField.textColor = .red
+            
+            let alert  = AlertController(header: Resources.Strings.loginAlertUserNotFoundTitle.rawValue,
+                                         message: Resources.Strings.loginAlertUserNotFound.rawValue,
+                                         actionPossibility: true)
+            present(alert, animated: true)
+            
+        }
     }
 }
 
