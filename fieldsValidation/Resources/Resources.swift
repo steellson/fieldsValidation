@@ -11,11 +11,17 @@ import UIKit
 
 enum Resources {
     
+    //MARK: - Cells Id
+    
+    enum RCellsId: String {
+        case homeCollectionViewCellId
+    }
+    
     //MARK: - Colors
     
     enum RColors {
-        static let defaultTextFieldGrayColor  = CGColor(red: 157/255, green: 159/255, blue: 159/255, alpha: 1)
-        static let registrationFieldGrayColor = CGColor(red: 203/255, green: 232/255, blue: 182/255, alpha: 1)
+        static let defaultTextFieldGrayColor  = UIColor(red: 157/255, green: 159/255, blue: 159/255, alpha: 1)
+        static let registrationFieldGrayColor = UIColor(red: 203/255, green: 232/255, blue: 182/255, alpha: 1)
         
         static let defaultBackgroundColor     = UIColor(red: 142/255, green: 145/255, blue: 203/255, alpha: 1)
         static let validationLabelColor       = UIColor(red: 56/255, green: 2/255, blue: 218/255, alpha: 1)
