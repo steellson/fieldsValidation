@@ -11,6 +11,8 @@ import UIKit
 
 final class HomeController: UIViewController {
     
+    var presenter: HomePresenterProtocol!
+    
     
     //MARK: - UI Elements
     
@@ -56,12 +58,19 @@ private extension HomeController {
     
 }
 
-//
-////MARK: - HomeControllerViewProtocol Extension
-//
-//extension HomeController: HomeControllerViewProtocol {
-//
-//}
+
+//MARK: - HomeControllerViewProtocol Extension
+
+extension HomeController: HomeControllerProtocol {
+    
+    func loadingStarted() {
+        //
+    }
+    
+    func loadingFinished() {
+        //
+    }
+}
 
 
 //MARK: - HomeCollectionView Data Source Extension
@@ -74,7 +83,7 @@ extension HomeController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId, for: indexPath) as! HomeCollectionCell
-        
+//        cell.configureCell(with: <#T##UIImage?#>)
         return cell
     }
     

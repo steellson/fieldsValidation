@@ -14,7 +14,7 @@ final class HomeCollectionCell: UICollectionViewCell {
     
     //MARK: UI Elements
     
-    private var imageView: UIImageView!
+    private var imageView : UIImageView!
     
     
 //MARK: - Init
@@ -34,8 +34,8 @@ final class HomeCollectionCell: UICollectionViewCell {
     
 //MARK: - Setup Cell
     
-    func configureCell() {
-        
+    func configureCell(with image: UIImage?) {
+        self.imageView.image = image
     }
     
     private func setupCell() {

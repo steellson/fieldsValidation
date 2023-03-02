@@ -10,6 +10,10 @@
 		3D54249C29B11E4100589651 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249B29B11E4100589651 /* HomeController.swift */; };
 		3D54249E29B11FA100589651 /* HomeControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249D29B11FA100589651 /* HomeControllerLayout.swift */; };
 		3D5424A029B1211000589651 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249F29B1211000589651 /* HomeCollectionCell.swift */; };
+		3D5424A329B129FC00589651 /* RequestedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A229B129FC00589651 /* RequestedObject.swift */; };
+		3D5424A529B12B7900589651 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A429B12B7900589651 /* HomePresenter.swift */; };
+		3D5424A729B12CBF00589651 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A629B12CBF00589651 /* HomeRouter.swift */; };
+		3D5424A929B12CFA00589651 /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A829B12CFA00589651 /* HomeModuleBuilder.swift */; };
 		3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7EAF3E297D3C410006A39F /* AppDelegate.swift */; };
 		3D7EAF41297D3C410006A39F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7EAF40297D3C410006A39F /* SceneDelegate.swift */; };
 		3D7EAF48297D3C430006A39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7EAF47297D3C430006A39F /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 		3D54249B29B11E4100589651 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		3D54249D29B11FA100589651 /* HomeControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerLayout.swift; sourceTree = "<group>"; };
 		3D54249F29B1211000589651 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
+		3D5424A229B129FC00589651 /* RequestedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedObject.swift; sourceTree = "<group>"; };
+		3D5424A429B12B7900589651 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		3D5424A629B12CBF00589651 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		3D5424A829B12CFA00589651 /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
 		3D7EAF3B297D3C410006A39F /* fieldsValidation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fieldsValidation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7EAF3E297D3C410006A39F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7EAF40297D3C410006A39F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,8 +89,19 @@
 				3D54249B29B11E4100589651 /* HomeController.swift */,
 				3D54249D29B11FA100589651 /* HomeControllerLayout.swift */,
 				3D54249F29B1211000589651 /* HomeCollectionCell.swift */,
+				3D5424A429B12B7900589651 /* HomePresenter.swift */,
+				3D5424A629B12CBF00589651 /* HomeRouter.swift */,
+				3D5424A829B12CFA00589651 /* HomeModuleBuilder.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3D5424A129B1299300589651 /* RequestedObject */ = {
+			isa = PBXGroup;
+			children = (
+				3D5424A229B129FC00589651 /* RequestedObject.swift */,
+			);
+			path = RequestedObject;
 			sourceTree = "<group>";
 		};
 		3D7EAF32297D3C400006A39F = {
@@ -107,6 +126,7 @@
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
 				3D54249A29B11DD100589651 /* Home */,
+				3D5424A129B1299300589651 /* RequestedObject */,
 				3DE61574298046FC00ADA1CF /* User */,
 				3DE6156E297ED9CA00ADA1CF /* Extensions */,
 				3DE61569297EC6B100ADA1CF /* Helpers */,
@@ -291,14 +311,18 @@
 				3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */,
 				3DE61560297DAE2000ADA1CF /* AuthorizationRouter.swift in Sources */,
 				3DE61579298047BB00ADA1CF /* UserDefaultsManager.swift in Sources */,
+				3D5424A329B129FC00589651 /* RequestedObject.swift in Sources */,
 				3D54249E29B11FA100589651 /* HomeControllerLayout.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
+				3D5424A929B12CFA00589651 /* HomeModuleBuilder.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
+				3D5424A529B12B7900589651 /* HomePresenter.swift in Sources */,
 				3DE6154B297D5F7100ADA1CF /* UILabel+Extension.swift in Sources */,
 				3DE61570297EE95000ADA1CF /* String+Extension.swift in Sources */,
 				3DE6157329801B6900ADA1CF /* Resources.swift in Sources */,
 				3DE6155E297DAE0000ADA1CF /* AuthorizationModuleBuilder.swift in Sources */,
 				3DE61568297DD23300ADA1CF /* UIStackView+Extension.swift in Sources */,
+				3D5424A729B12CBF00589651 /* HomeRouter.swift in Sources */,
 				3DE61564297DAF9900ADA1CF /* AuthorizationPresenter.swift in Sources */,
 				3DE6154D297D5F7C00ADA1CF /* UITextField+Extension.swift in Sources */,
 				3DE615762980471900ADA1CF /* User.swift in Sources */,
