@@ -78,15 +78,8 @@ extension LoginController {
 //MARK: - LoginControllerViewProtocol Extension
 
 extension LoginController: AuthorizationControllerProtocol {
-    func startLoading() {
-        //
-    }
-    
-    func finishLoading() {
-        //
-    }
-    
-    func signInDidTapped() {
+
+    func enterButtonDidTapped() {
         let mail     = emailField.text ?? ""
         let password = passwordField.text ?? ""
         let user     = presenter.findUser(by: mail)

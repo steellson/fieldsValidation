@@ -99,17 +99,9 @@ extension RegistrationController {
 //MARK: - RegistrationControllerViewProtocol Extension
 
 extension RegistrationController: AuthorizationControllerProtocol {
-    
-    func startLoading() {
-        //
-    }
-    
-    func finishLoading() {
-        //
-    }
-    
-    func signInDidTapped() {
-        print("not configure yet")
+
+    func enterButtonDidTapped() {
+        presenter.goRegButtonDidTapped()
     }
     
 }

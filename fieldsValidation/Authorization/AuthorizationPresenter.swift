@@ -9,9 +9,7 @@ import Foundation
 //MARK: - AuthorizationControllerProtocol
 
 protocol AuthorizationControllerProtocol: AnyObject {
-    func startLoading()
-    func finishLoading()
-    func signInDidTapped()
+    func enterButtonDidTapped()
 }
 
 
@@ -60,6 +58,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     func findUser(by mail: String) -> User? {
         for user in userDefaultsManager.users {
             if user.email == mail {
+                print("Success!")
                 return user
             }
         }
@@ -67,7 +66,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
     
     func signInButtonDidTapped() {
-        view.signInDidTapped()
+        view.enterButtonDidTapped()
     }
     
     func signUpButtonDidTapped() {
@@ -76,11 +75,11 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     func goRegButtonDidTapped() {
         if let view = view as? RegistrationController {
-            let firstNameText  = view.firstNameLabel.text ?? ""
-            let secondNameText = view.secondNameLabel.text ?? ""
-            let phoneText      = view.phoneLabel.text ?? ""
-            let emailText      = view.emailLabel.text ?? ""
-            let passwordText   = view.passwordLabel.text ?? ""
+            let firstNameText  = view.firstNameField.text ?? ""
+            let secondNameText = view.secondNameField.text ?? ""
+            let phoneText      = view.phoneField.text ?? ""
+            let emailText      = view.emailField.text ?? ""
+            let passwordText   = view.passwordField.text ?? ""
             
             if firstNameText.isValid(validType: .name)
                 && secondNameText.isValid(validType: .name)
