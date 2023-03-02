@@ -17,6 +17,7 @@ final class HomeCollectionCell: UICollectionViewCell {
     private var imageView : UIImageView!
     
     
+    
 //MARK: - Init
     
     override init(frame: CGRect) {

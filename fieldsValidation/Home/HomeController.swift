@@ -78,12 +78,12 @@ extension HomeController: HomeControllerProtocol {
 extension HomeController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId, for: indexPath) as! HomeCollectionCell
-//        cell.configureCell(with: <#T##UIImage?#>)
+        //
         return cell
     }
     
