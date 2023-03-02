@@ -29,7 +29,7 @@ final class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupView()
         setupLayout()
         
@@ -69,6 +69,7 @@ extension LoginController {
         
         emailField.delegate    = self
         passwordField.delegate = self
+        passwordField.isSecureTextEntry = true
         
         signInButton.addTarget(self, action: #selector(signInButtonDidTapped), for: .touchUpInside)
         signUpButton.addTarget(self, action: #selector(signUpButtonDidTapped), for: .touchUpInside)

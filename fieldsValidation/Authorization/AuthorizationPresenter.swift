@@ -80,10 +80,10 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             let phoneText      = view.phoneField.text ?? ""
             let emailText      = view.emailField.text ?? ""
             let passwordText   = view.passwordField.text ?? ""
-            
+
             if firstNameText.isValid(validType: .name)
                 && secondNameText.isValid(validType: .name)
-                && phoneText.isValid(validType: .phone)
+//                && phoneText.isValid(validType: .phone)
                 && emailText.isValid(validType: .email)
                 && passwordText.isValid(validType: .password) {
                 
@@ -98,6 +98,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                                              message: Resources.Strings.registrationCompletedAlertMessage.rawValue,
                                              actionPossibility: true)
                 view.present(alert, animated: true)
+                view.dismiss(animated: true)
             } else {
                 let alert  = AlertController(header: Resources.Strings.registrationWrongAlertTitle.rawValue,
                                              message: Resources.Strings.registrationWrongAlertMessage.rawValue,

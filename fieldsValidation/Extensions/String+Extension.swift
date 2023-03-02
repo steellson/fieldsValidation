@@ -11,14 +11,14 @@ extension String {
     enum ValidTypes {
         case name
         case secondName
-        case phone
+      //  case phone
         case email
         case password
     }
     
     enum RegExp: String {
         case name      = "[a-zA-Z]{1,}"
-        case phone     = "[0-9]{10,}"
+       // case phone     = "[0-9]"
         case email     = "[a-zA-Z0-9._]+@[a-zA-Z0-9]+\\.[a-zA-Z]{2,}"
         case password  = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,16}"
     }
@@ -32,8 +32,8 @@ extension String {
             regexp = RegExp.name.rawValue
         case .secondName:
             regexp = RegExp.name.rawValue
-        case .phone:
-            regexp = RegExp.phone.rawValue
+//        case .phone:
+//            regexp = RegExp.phone.rawValue
         case .email:
             regexp = RegExp.email.rawValue
         case .password:
