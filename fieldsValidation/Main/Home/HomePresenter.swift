@@ -16,9 +16,9 @@ protocol HomeControllerProtocol: AnyObject {
 
 protocol HomePresenterProtocol: AnyObject {
     init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol)
-    var objects: [RequestedObject]? { get set }
+    var objects: [RequestedObject] { get set }
     
-    func loadData()
+    func loadData(from url: String)
 }
 
 
@@ -31,7 +31,7 @@ final class HomePresenter: HomePresenterProtocol {
     weak var view: HomeControllerProtocol!
     var router: RouterProtocol?
     var apiManager: APIManagerProtocol?
-    var objects: [RequestedObject]?
+    var objects = [RequestedObject]()
     
     //MARK: - Init
     
@@ -39,12 +39,22 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
         self.router = router
         self.apiManager = apiManager
+        
     }
     
     
     //MARK: - Methods
     
-    func loadData() {
-        //
+    func loadData(from url: String) {
+        guard let apiManager = apiManager else { return }
+        apiManager.getData(from: url, completion: { result in
+                switch result {
+                case .success(let data):
+                    print(data)
+                    data.forEach { self.objects.append($0) }
+                case .failure(let error):
+                    print("Loading data error: \(error.localizedDescription)")
+                }
+        })
     }
 }

@@ -19,8 +19,8 @@ protocol APIManagerProtocol: AnyObject {
 
 final class APIManager {
     
-    private let defaultURL = "https://api.kinopoisk.dev/v1/"
-    private let apiToken = "2DZSKPA-6V5MMTW-MJWTGDM-QV2GGEY"
+//    private let defaultURL = "https://api.kinopoisk.dev/v1/"
+//    private let apiToken = "2DZSKPA-6V5MMTW-MJWTGDM-QV2GGEY"
     
 }
 
@@ -39,7 +39,6 @@ extension APIManager: APIManagerProtocol {
             
             let objects = try! JSONDecoder().decode([RequestedObject].self, from: data)
             completion(.success(objects))
-            
         }.resume()
     }
     

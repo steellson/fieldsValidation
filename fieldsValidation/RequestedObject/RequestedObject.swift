@@ -11,10 +11,10 @@ import UIKit
 //MARK: - RequestedObject Model
 
 struct RequestedObject: Codable {
-    let image: String
+//    let image: String
     let title: String
-    let lenght: Int
-    let date: Date
+//    let lenght: Int
+//    let date: Date
 }
 
 
