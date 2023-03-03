@@ -19,8 +19,8 @@ final class LoginController: UIViewController {
     
     let unicornView   = UIImageView(image: Resources.RImages.unicornImage)
     let loginLabel    = UILabel(Resources.RFonts.helveticaBold40, .white, .center, "LOGIN")
-    let emailField    = UITextField().buildAuthField(with: "Enter e-mail", Resources.RColors.defaultTextFieldGrayColor.cgColor)
-    let passwordField = UITextField().buildAuthField(with: "Enter password", Resources.RColors.defaultTextFieldGrayColor.cgColor)
+    let emailField    = TextField().buildTextField(with: "Enter e-mail", Resources.RColors.defaultTextFieldGrayColor.cgColor)
+    let passwordField = TextField().buildTextField(with: "Enter password", Resources.RColors.defaultTextFieldGrayColor.cgColor)
     let signInButton  = UIButton("SIGN-IN", .red, .white, 20)
     let signUpButton  = UIButton("SIGN-UP", .blue, .white, 20)
     
