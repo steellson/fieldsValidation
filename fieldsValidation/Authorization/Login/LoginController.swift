@@ -80,33 +80,8 @@ extension LoginController {
 
 extension LoginController: AuthorizationControllerProtocol {
 
-    func enterButtonDidTapped() {
-        let mail     = emailField.text ?? ""
-        let password = passwordField.text ?? ""
-        let user     = presenter.findUser(by: mail)
+    func show() {
         
-        if user != nil  {
-            emailField.textColor = .systemGreen
-            if user?.password == password {
-                
-                /////// PLACE FOR TRANSITION //////////
-                
-                print("Success login of \(user!)")
-            } else {
-                let alert  = AlertController(header: nil,
-                                             message: Resources.Strings.loginAlertWrongMailOrPass.rawValue,
-                                             actionPossibility: true)
-                present(alert, animated: true)
-            }
-        } else {
-            emailField.textColor = .red
-            
-            let alert  = AlertController(header: Resources.Strings.loginAlertUserNotFoundTitle.rawValue,
-                                         message: Resources.Strings.loginAlertUserNotFound.rawValue,
-                                         actionPossibility: true)
-            present(alert, animated: true)
-            
-        }
     }
 }
 

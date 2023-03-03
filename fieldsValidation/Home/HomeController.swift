@@ -63,11 +63,7 @@ private extension HomeController {
 
 extension HomeController: HomeControllerProtocol {
     
-    func loadingStarted() {
-        //
-    }
-    
-    func loadingFinished() {
+    func showContent() {
         //
     }
 }

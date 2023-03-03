@@ -20,7 +20,8 @@ final class HomeModuleBuilder: HomeModuleBuilderProtocol {
         
    public func buildHomeController(router: HomeRouterProtocol) -> UIViewController {
         let view        = HomeController()
-        let presenter   = HomePresenter(view: view, router: router)
+        let apiManager  = APIManager()
+        let presenter   = HomePresenter(view: view, router: router, apiManager: apiManager)
         view.presenter  = presenter
         return view
     }

@@ -9,16 +9,16 @@ import Foundation
 //MARK: - HomeControllerProtocol
 
 protocol HomeControllerProtocol: AnyObject {
-    func loadingStarted()
-    func loadingFinished()
+    func showContent()
 }
 
 //MARK: - HomePresenterProtocol
 
 protocol HomePresenterProtocol: AnyObject {
-    init(view: HomeControllerProtocol, router: HomeRouterProtocol)
+    init(view: HomeControllerProtocol, router: HomeRouterProtocol, apiManager: APIManagerProtocol)
     var objects: [RequestedObject]? { get set }
-
+    
+    func loadData()
 }
 
 
@@ -30,17 +30,21 @@ final class HomePresenter: HomePresenterProtocol {
     
     weak var view: HomeControllerProtocol!
     var router: HomeRouterProtocol?
+    var apiManager: APIManagerProtocol?
     var objects: [RequestedObject]?
     
     //MARK: - Init
     
-    required init(view: HomeControllerProtocol, router: HomeRouterProtocol) {
+    required init(view: HomeControllerProtocol, router: HomeRouterProtocol, apiManager: APIManagerProtocol) {
         self.view = view
         self.router = router
+        self.apiManager = apiManager
     }
     
     
     //MARK: - Methods
     
-   
+    func loadData() {
+        //
+    }
 }

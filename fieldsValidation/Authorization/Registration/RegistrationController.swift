@@ -99,11 +99,11 @@ extension RegistrationController {
 //MARK: - RegistrationControllerViewProtocol Extension
 
 extension RegistrationController: AuthorizationControllerProtocol {
-
-    func enterButtonDidTapped() {
-        presenter.goRegButtonDidTapped()
-    }
     
+    func show() {
+        //
+    }
+
 }
 
 

@@ -9,7 +9,7 @@ import Foundation
 //MARK: - AuthorizationControllerProtocol
 
 protocol AuthorizationControllerProtocol: AnyObject {
-    func enterButtonDidTapped()
+    func show()
 }
 
 
@@ -66,7 +66,36 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     }
     
     func signInButtonDidTapped() {
-        view.enterButtonDidTapped()
+        if let view = view as? LoginController {
+            let mail     = view.emailField.text ?? ""
+            let password = view.passwordField.text ?? ""
+            let user     = view.presenter.findUser(by: mail)
+            
+            if user != nil  {
+                view.emailField.textColor = .systemGreen
+                if user?.password == password {
+                    
+                    /////// PLACE FOR TRANSITION //////////
+                    
+                    print("Success login of \(user!)")
+                } else {
+                    let alert  = AlertController(header: nil,
+                                                 message: Resources.Strings.loginAlertWrongMailOrPass.rawValue,
+                                                 actionPossibility: true)
+                    view.present(alert, animated: true)
+                }
+            } else {
+                view.emailField.textColor = .red
+                
+                let alert  = AlertController(header: Resources.Strings.loginAlertUserNotFoundTitle.rawValue,
+                                             message: Resources.Strings.loginAlertUserNotFound.rawValue,
+                                             actionPossibility: true)
+                view.present(alert, animated: true)
+                
+            }
+        } else {
+            print("SignIn button error")
+        }
     }
     
     func signUpButtonDidTapped() {
