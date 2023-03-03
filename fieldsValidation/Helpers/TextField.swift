@@ -10,17 +10,13 @@ import UIKit
 //MARK: - TextField
 
 final class TextField: UITextField {
-    
-    //MARK: Variables
-    
-    
+
     
 //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupView()
     }
     
     required init?(coder: NSCoder) {
@@ -48,17 +44,5 @@ final class TextField: UITextField {
         return field
     }
     
-    
-}
-
-//MARK: - TextField Extension
-
-private extension TextField {
-    
-    func setupView() {
-        
-        
-
-    }
     
 }

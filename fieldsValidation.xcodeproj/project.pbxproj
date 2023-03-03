@@ -16,6 +16,7 @@
 		3D5424A929B12CFA00589651 /* HomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A829B12CFA00589651 /* HomeModuleBuilder.swift */; };
 		3D5424AB29B12F1F00589651 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424AA29B12F1F00589651 /* APIManager.swift */; };
 		3D5424AD29B200E800589651 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424AC29B200E800589651 /* TextField.swift */; };
+		3D5424AF29B219E500589651 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424AE29B219E500589651 /* UITextField+Extension.swift */; };
 		3D7EAF3F297D3C410006A39F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7EAF3E297D3C410006A39F /* AppDelegate.swift */; };
 		3D7EAF41297D3C410006A39F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7EAF40297D3C410006A39F /* SceneDelegate.swift */; };
 		3D7EAF48297D3C430006A39F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D7EAF47297D3C430006A39F /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		3D5424A829B12CFA00589651 /* HomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModuleBuilder.swift; sourceTree = "<group>"; };
 		3D5424AA29B12F1F00589651 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3D5424AC29B200E800589651 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		3D5424AE29B219E500589651 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		3D7EAF3B297D3C410006A39F /* fieldsValidation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fieldsValidation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D7EAF3E297D3C410006A39F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D7EAF40297D3C410006A39F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				3DE6154E297D5F8900ADA1CF /* UIButton+Extension.swift */,
 				3DE6154A297D5F7100ADA1CF /* UILabel+Extension.swift */,
+				3D5424AE29B219E500589651 /* UITextField+Extension.swift */,
 				3DE61567297DD23300ADA1CF /* UIStackView+Extension.swift */,
 				3DE61550297D61C800ADA1CF /* UIView+Extension.swift */,
 				3DE6156F297EE95000ADA1CF /* String+Extension.swift */,
@@ -316,6 +319,7 @@
 				3DE61579298047BB00ADA1CF /* UserDefaultsManager.swift in Sources */,
 				3D5424A329B129FC00589651 /* RequestedObject.swift in Sources */,
 				3D54249E29B11FA100589651 /* HomeControllerLayout.swift in Sources */,
+				3D5424AF29B219E500589651 /* UITextField+Extension.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,
 				3D5424A929B12CFA00589651 /* HomeModuleBuilder.swift in Sources */,
 				3DE61551297D61C800ADA1CF /* UIView+Extension.swift in Sources */,
