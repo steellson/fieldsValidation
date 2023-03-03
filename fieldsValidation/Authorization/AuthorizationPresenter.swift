@@ -21,6 +21,7 @@ protocol AuthorizationPresenterProtocol: AnyObject {
          router: AuthorizationRouterProtocol)
     
     func findUser(by mail: String) -> User?
+    func ageIsValid() -> Bool
     
     func signInButtonDidTapped()
     func signUpButtonDidTapped()
@@ -58,11 +59,27 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     func findUser(by mail: String) -> User? {
         for user in userDefaultsManager.users {
             if user.email == mail {
-                print("Success!")
                 return user
             }
         }
         return nil
+    }
+    
+    func ageIsValid() -> Bool {
+        if let view = view as? RegistrationController {
+            let calendar = NSCalendar.current
+            let dateNow  = Date()
+            let birthday = view.ageDatePicker.date
+            
+            let age      = calendar.dateComponents([.year], from: birthday, to: dateNow)
+            let ageYear  = age.year
+            
+            guard let ageUser = ageYear else { return false }
+            return (ageUser < 18 ? false : true)
+        } else {
+            print("Validation method error")
+        }
+        return false
     }
     
     func signInButtonDidTapped() {

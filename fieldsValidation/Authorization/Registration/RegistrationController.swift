@@ -151,20 +151,6 @@ extension RegistrationController {
                                   mask: mask,
                                   range: range)
     }
-    
-    
-    private func ageIsValid() -> Bool {
-        
-        let calendar = NSCalendar.current
-        let dateNow  = Date()
-        let birthday = ageDatePicker.date
-        
-        let age      = calendar.dateComponents([.year], from: birthday, to: dateNow)
-        let ageYear  = age.year
-        
-        guard let ageUser = ageYear else { return false }
-        return (ageUser < 18 ? false : true)
-    }
 }
 
 
