@@ -15,7 +15,7 @@ protocol HomeControllerProtocol: AnyObject {
 //MARK: - HomePresenterProtocol
 
 protocol HomePresenterProtocol: AnyObject {
-    init(view: HomeControllerProtocol, router: HomeRouterProtocol, apiManager: APIManagerProtocol)
+    init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol)
     var objects: [RequestedObject]? { get set }
     
     func loadData()
@@ -29,13 +29,13 @@ final class HomePresenter: HomePresenterProtocol {
     //MARK: Variables
     
     weak var view: HomeControllerProtocol!
-    var router: HomeRouterProtocol?
+    var router: RouterProtocol?
     var apiManager: APIManagerProtocol?
     var objects: [RequestedObject]?
     
     //MARK: - Init
     
-    required init(view: HomeControllerProtocol, router: HomeRouterProtocol, apiManager: APIManagerProtocol) {
+    required init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol) {
         self.view = view
         self.router = router
         self.apiManager = apiManager

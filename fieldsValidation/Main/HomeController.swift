@@ -37,8 +37,13 @@ private extension HomeController {
     func setupView() {
         view.backgroundColor = Resources.RColors.defaultBackgroundColor
         
+        setupNavBar()
         setupCollectionView()
         setupLayout()
+    }
+    
+    func setupNavBar() {
+        navigationItem.hidesBackButton = true
     }
     
     func setupCollectionView() {

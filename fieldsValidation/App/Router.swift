@@ -1,36 +1,36 @@
 //
-//  AuthorizationRouter.swift
+//  Router.swift
 //
 //  Created by Steellson
 
 
 import UIKit
 
-//MARK: - AuthorizationRouter Protocol
+//MARK: - Router Protocol
 
-protocol AuthorizationRouterProtocol {
-    var moduleBuilder        : AuthorizationModuleBuilderProtocol? { get set }
+protocol RouterProtocol {
+    var moduleBuilder        : ModuleBuilderProtocol? { get set }
     var navigationController : UINavigationController? { get set }
     
-    func initialView()
+    func authorizationInitialView()
     func goToRegistration()
-    func goBack()
+    func goHome()
 }
 
 
 
-//MARK: - AuthorizationRouterImpl
+//MARK: - RouterImpl
 
-final class AuthorizationRouter: AuthorizationRouterProtocol {
+final class Router: RouterProtocol {
     
     //MARK: - Variables
     
-    var moduleBuilder        : AuthorizationModuleBuilderProtocol?
+    var moduleBuilder        : ModuleBuilderProtocol?
     var navigationController : UINavigationController?
     
     //MARK: - Init
     
-    init(moduleBuilder: AuthorizationModuleBuilderProtocol?, navigationController: UINavigationController?) {
+    init(moduleBuilder: ModuleBuilderProtocol?, navigationController: UINavigationController?) {
         self.moduleBuilder        = moduleBuilder
         self.navigationController = navigationController
     }
@@ -38,7 +38,7 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     //MARK: - Methods
     
-    func initialView() {
+    func authorizationInitialView() {
         if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
             let loginController  = moduleBuilder.buildLoginController(router: self)
             navigationController.pushViewController(loginController, animated: true)
@@ -49,17 +49,17 @@ final class AuthorizationRouter: AuthorizationRouterProtocol {
     
     func goToRegistration()  {
         if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
-            navigationController.present(moduleBuilder.buildRegistrationController(router: self), animated: true)
+            let regController = moduleBuilder.buildRegistrationController(router: self)
+            navigationController.present(regController, animated: true)
         } else {
             print("GoToRegistration Debug")
         }
     }
     
-    func goBack() {
-        if let navigationController = navigationController {
-            navigationController.dismiss(animated: true)
-        } else {
-            print("GoBackButton Debug")
+    func goHome() {
+        if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
+            let homeController = moduleBuilder.buildHomeController(router: self)
+            navigationController.pushViewController(homeController, animated: true)
         }
     }
 }

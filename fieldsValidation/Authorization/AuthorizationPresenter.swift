@@ -18,7 +18,7 @@ protocol AuthorizationControllerProtocol: AnyObject {
 protocol AuthorizationPresenterProtocol: AnyObject {
     init(view: AuthorizationControllerProtocol,
          userDefaultsManager: UserDefaultsManagerProtocol,
-         router: AuthorizationRouterProtocol)
+         router: RouterProtocol)
     
     func findUser(by mail: String) -> User?
     func ageIsValid() -> Bool
@@ -42,12 +42,15 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     weak var view           : AuthorizationControllerProtocol!
     var userDefaultsManager : UserDefaultsManagerProtocol!
-    var router              : AuthorizationRouterProtocol!
+    var router              : RouterProtocol!
     
     
     //MARK: - Init
     
-    required init(view: AuthorizationControllerProtocol, userDefaultsManager: UserDefaultsManagerProtocol, router: AuthorizationRouterProtocol) {
+    required init(view: AuthorizationControllerProtocol,
+                  userDefaultsManager: UserDefaultsManagerProtocol,
+                  router: RouterProtocol) {
+        
         self.view                = view
         self.userDefaultsManager = userDefaultsManager
         self.router              = router
@@ -91,7 +94,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             if user != nil  {
                 view.emailField.textColor = .systemGreen
                 if user?.password == password {
-                    
+                    router.goHome()
                     /////// PLACE FOR TRANSITION //////////
                     
                     print("Success login of \(user!)")
