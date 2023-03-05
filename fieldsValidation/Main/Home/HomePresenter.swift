@@ -39,22 +39,25 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
         self.router = router
         self.apiManager = apiManager
-        
     }
     
     
     //MARK: - Methods
     
     func loadData(from url: String) {
-        guard let apiManager = apiManager else { return }
-        apiManager.getData(from: url, completion: { result in
-                switch result {
-                case .success(let data):
-                    print(data)
-                    data.forEach { self.objects.append($0) }
-                case .failure(let error):
-                    print("Loading data error: \(error.localizedDescription)")
+                
+        apiManager!.getData(from: url) { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(objects: let objects):
+                DispatchQueue.main.async {
+                    self.objects = objects
                 }
-        })
+            case .error(error: let error):
+                print("Load data error: \(error.localizedDescription) / In presenter")
+            }
+        }
     }
 }

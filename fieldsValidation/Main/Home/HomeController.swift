@@ -25,16 +25,8 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        
-        presenter.loadData(from: "https://jsonplaceholder.typicode.com/photos")
+        presenter.loadData(from: "https://jsonplaceholder.typicode.com/post")
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        print(presenter.objects[0])
-    }
-    
 }
 
 

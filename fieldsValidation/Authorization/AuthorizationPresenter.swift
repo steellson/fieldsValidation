@@ -61,7 +61,7 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     func findUser(by mail: String) -> User? {
         for user in userDefaultsManager.users {
-            if user.email == mail {
+            if user.email.lowercased() == mail.lowercased() {
                 return user
             }
         }
@@ -95,8 +95,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
                 view.emailField.textColor = .systemGreen
                 if user?.password == password {
                     router.goHome()
-                    /////// PLACE FOR TRANSITION //////////
-                    
                     print("Success login of \(user!)")
                 } else {
                     let alert  = AlertController(header: nil,
