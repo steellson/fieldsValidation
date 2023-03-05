@@ -25,7 +25,13 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        presenter.loadData(from: "https://jsonplaceholder.typicode.com/post")
+        presenter.loadData(from: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=MqLemK0jlboyscMMHnqpsCYHC1AwJI915p87A0uV")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print(presenter.photos)     // ????!??!???!??!??
     }
 }
 
@@ -56,7 +62,6 @@ private extension HomeController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(HomeCollectionCell.self, forCellWithReuseIdentifier: HomeCollectionCell.cellId)
-        
         
         view.addSubview(collectionView)
     }

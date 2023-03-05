@@ -10,7 +10,7 @@
 		3D54249C29B11E4100589651 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249B29B11E4100589651 /* HomeController.swift */; };
 		3D54249E29B11FA100589651 /* HomeControllerLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249D29B11FA100589651 /* HomeControllerLayout.swift */; };
 		3D5424A029B1211000589651 /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D54249F29B1211000589651 /* HomeCollectionCell.swift */; };
-		3D5424A329B129FC00589651 /* RequestedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A229B129FC00589651 /* RequestedObject.swift */; };
+		3D5424A329B129FC00589651 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A229B129FC00589651 /* Photo.swift */; };
 		3D5424A529B12B7900589651 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424A429B12B7900589651 /* HomePresenter.swift */; };
 		3D5424AB29B12F1F00589651 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424AA29B12F1F00589651 /* APIManager.swift */; };
 		3D5424AF29B219E500589651 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5424AE29B219E500589651 /* UITextField+Extension.swift */; };
@@ -41,7 +41,7 @@
 		3D54249B29B11E4100589651 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		3D54249D29B11FA100589651 /* HomeControllerLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerLayout.swift; sourceTree = "<group>"; };
 		3D54249F29B1211000589651 /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
-		3D5424A229B129FC00589651 /* RequestedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestedObject.swift; sourceTree = "<group>"; };
+		3D5424A229B129FC00589651 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		3D5424A429B12B7900589651 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		3D5424AA29B12F1F00589651 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		3D5424AE29B219E500589651 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -89,12 +89,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		3D5424A129B1299300589651 /* RequestedObject */ = {
+		3D5424A129B1299300589651 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				3D5424A229B129FC00589651 /* RequestedObject.swift */,
+				3D5424A229B129FC00589651 /* Photo.swift */,
 			);
-			path = RequestedObject;
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		3D5424B129B2329F00589651 /* Home */ = {
@@ -130,7 +130,7 @@
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
 				3D54249A29B11DD100589651 /* Main */,
-				3D5424A129B1299300589651 /* RequestedObject */,
+				3D5424A129B1299300589651 /* Photo */,
 				3DE61574298046FC00ADA1CF /* User */,
 				3DE6156E297ED9CA00ADA1CF /* Extensions */,
 				3DE61569297EC6B100ADA1CF /* Helpers */,
@@ -316,7 +316,7 @@
 				3DE6156D297EC75600ADA1CF /* KeyboardContentAssistent.swift in Sources */,
 				3DE61560297DAE2000ADA1CF /* Router.swift in Sources */,
 				3DE61579298047BB00ADA1CF /* UserDefaultsManager.swift in Sources */,
-				3D5424A329B129FC00589651 /* RequestedObject.swift in Sources */,
+				3D5424A329B129FC00589651 /* Photo.swift in Sources */,
 				3D54249E29B11FA100589651 /* HomeControllerLayout.swift in Sources */,
 				3D5424AF29B219E500589651 /* UITextField+Extension.swift in Sources */,
 				3DE61544297D5BA100ADA1CF /* LoginControllerLayout.swift in Sources */,

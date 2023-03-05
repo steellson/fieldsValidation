@@ -15,11 +15,9 @@ enum APIError: Error {
 }
 
 enum APIResult {
-    case success(objects: [RequestedObject])
+    case success(photos: Photo)
     case error(error: APIError)
 }
-
-
 
 
 //MARK: APIManager Protocol
@@ -33,14 +31,21 @@ protocol APIManagerProtocol: AnyObject {
 
 final class APIManager {
     
-    //    private let defaultURL = "https://api.kinopoisk.dev/v1/"
-    //    private let apiToken = "2DZSKPA-6V5MMTW-MJWTGDM-QV2GGEY"
+   //defaultURL = "https://api.kinopoisk.dev/v1"
+    
+}
+
+//MARK: APIManager Protocol Extension
+
+extension APIManager: APIManagerProtocol {
     
     func getData(from url: String, completion: @escaping (APIResult) -> Void) {
         
         guard let urlString = URL(string: url) else { return }
-        let request = URLRequest(url: urlString)
         
+        var request = URLRequest(url: urlString)
+        request.httpMethod          = "GET"
+                
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
             var result: APIResult
@@ -53,11 +58,11 @@ final class APIManager {
                         
             if error == nil, let data = data {
 
-                guard let objects = try? JSONDecoder().decode([RequestedObject].self, from: data) else {
+                guard let photos = try? JSONDecoder().decode(Photo.self, from: data) else {
                     return result = .error(error: .decodeError)
                 }
                 
-                result = .success(objects: objects)
+                result = .success(photos: photos)
                 
             } else {
                 result = .error(error: .urlSessionTaskError)
@@ -65,12 +70,5 @@ final class APIManager {
         }
         task.resume()
     }
-    
-}
-
-//MARK: APIManager Protocol Extension
-
-extension APIManager: APIManagerProtocol {
-    
     
 }
