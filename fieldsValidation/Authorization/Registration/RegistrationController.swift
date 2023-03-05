@@ -80,6 +80,7 @@ extension RegistrationController {
         view.addSubview(stackView)
         view.addSubview(goRegButton)
         
+        ageDatePicker.datePickerMode = .date
         birthdayField.leftView = ageDatePicker
         
         goRegButton.addTarget(self, action: #selector(goRegButtonDidTapped), for: .touchUpInside)
