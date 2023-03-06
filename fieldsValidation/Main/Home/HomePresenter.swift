@@ -12,6 +12,17 @@ protocol HomeControllerProtocol: AnyObject {
     func showContent()
 }
 
+//MARK: - HomeCollectionCellProtocol
+
+protocol HomeConllectionCellProtocol: AnyObject {
+    
+}
+
+protocol HomePresenterExternalProtocol: AnyObject {
+    func startLoad()
+}
+
+
 //MARK: - HomePresenterProtocol
 
 protocol HomePresenterProtocol: AnyObject {
@@ -28,10 +39,20 @@ final class HomePresenter: HomePresenterProtocol {
     
     //MARK: Variables
     
-    weak var view: HomeControllerProtocol!
-    var router: RouterProtocol?
-    var apiManager: APIManagerProtocol?
-    var photos = [Photo]()
+    private weak var view: HomeControllerProtocol!
+    private var router: RouterProtocol?
+    private var apiManager: APIManagerProtocol?
+    
+    var photos: [Photo] {
+        get {
+            [Photo]()
+        }
+        set {
+            print("Appended: \(newValue)")
+            view.showContent()
+        }
+    }
+    
     
     //MARK: - Init
     
@@ -39,23 +60,28 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
         self.router = router
         self.apiManager = apiManager
+        
+        loadData(from: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&page=2&api_key=MqLemK0jlboyscMMHnqpsCYHC1AwJI915p87A0uV")
     }
     
     //MARK: - Methods
     
     func loadData(from url: String) {
-                
+        
         apiManager!.getData(from: url) { [weak self] result in
             
             guard let self = self else { return }
             
-            switch result {
-            case .success(photos: let photos):
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .success(photos: let photos):
                     self.photos.append(photos)
+                    
+                case .error(error: let error):
+                    print("Load data error: \(error.localizedDescription)")
                 }
-            case .error(error: let error):
-                print("Load data error: \(error.localizedDescription)")
+                
             }
         }
     }

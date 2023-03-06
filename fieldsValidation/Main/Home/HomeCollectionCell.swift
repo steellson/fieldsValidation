@@ -15,7 +15,7 @@ final class HomeCollectionCell: UICollectionViewCell {
     //MARK: UI Elements
     
     private var imageView : UIImageView!
-    
+    private var title     : UILabel!
     
     
 //MARK: - Init
@@ -30,40 +30,51 @@ final class HomeCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-
     
 //MARK: - Setup Cell
     
-    func configureCell(with image: UIImage?) {
+    func configureCell(with image: UIImage?, title: String) {
         self.imageView.image = image
+        self.title.text      = title
     }
     
-    private func setupCell() {
+}
+
+//MARK: - Setup methods extension
+
+private extension HomeCollectionCell {
+    
+    func setupCell() {
         backgroundColor = Resources.RColors.defaultTextFieldGrayColor
 
         setupImageView()
+        setupTitle()
         setupLayout()
         squadShadow()
     }
     
-    private func setupImageView() {
+    func setupImageView() {
         imageView = UIImageView()
-        
         addSubview(imageView)
     }
- 
+    
+    func setupTitle() {
+        title = UILabel()
+        title.textColor = .cyan
+        imageView.addSubview(title)
+    }
 }
 
 //MARK: - Layout Extension
 
-extension HomeCollectionCell {
+private extension HomeCollectionCell {
     
-    private func setupLayout() {
+    func setupLayout() {
         imageViewLayout()
+        titleLayout()
     }
     
-    private func imageViewLayout() {
+    func imageViewLayout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -73,5 +84,25 @@ extension HomeCollectionCell {
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
+    
+    func titleLayout() {
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
+            title.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 15),
+            title.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
+            title.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10)
+        ])
+    }
+    
+}
+
+
+//MARK: HomeCollectionCell View Protocol Extension
+
+extension HomeCollectionCell: HomeConllectionCellProtocol {
+    
+    
     
 }

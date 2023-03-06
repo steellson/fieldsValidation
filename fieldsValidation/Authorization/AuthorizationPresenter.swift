@@ -40,9 +40,9 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     //MARK: Variables
     
-    weak var view           : AuthorizationControllerProtocol!
-    var userDefaultsManager : UserDefaultsManagerProtocol!
-    var router              : RouterProtocol!
+    private weak var view           : AuthorizationControllerProtocol!
+    private var userDefaultsManager : UserDefaultsManagerProtocol!
+    private var router              : RouterProtocol!
     
     
     //MARK: - Init
