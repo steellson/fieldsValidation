@@ -26,7 +26,6 @@ final class HomeController: UIViewController {
         
         setupView()
     }
-    
 }
 
 

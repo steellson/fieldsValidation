@@ -18,10 +18,6 @@ protocol HomeConllectionCellProtocol: AnyObject {
     
 }
 
-protocol HomePresenterExternalProtocol: AnyObject {
-    func startLoad()
-}
-
 
 //MARK: - HomePresenterProtocol
 
