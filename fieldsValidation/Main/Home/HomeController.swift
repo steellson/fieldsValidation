@@ -69,8 +69,10 @@ extension HomeController: HomeControllerProtocol {
     func showContent() {
         presenter.loadData(from: Resources.RURLs.tempURL.rawValue) { [weak self] photos in
             guard let self else { return }
-            self.presenter.numberOfItems = photos.count
+            self.presenter.photos = photos
             self.updateView()
+            
+            print(photos.photos?[0].camera ?? 0)
         }
     }
     
@@ -85,7 +87,7 @@ extension HomeController: HomeControllerProtocol {
 extension HomeController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.numberOfItems ?? 0
+        presenter.photos?.photos?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -24,10 +24,9 @@ protocol HomeConllectionCellProtocol: AnyObject {
 
 protocol HomePresenterProtocol: AnyObject {
     init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol)
-    var photos: [Photo] { get set }
-    var numberOfItems: Int? { get set }
+    var photos: Photo? { get set }
     
-    func loadData(from url: String, completion: @escaping ([Photo]) -> Void)
+    func loadData(from url: String, completion: @escaping (Photo) -> Void)
 }
 
 
@@ -40,16 +39,8 @@ final class HomePresenter: HomePresenterProtocol {
     private weak var view: HomeControllerProtocol!
     private var router: RouterProtocol?
     private var apiManager: APIManagerProtocol?
-    
-    var numberOfItems: Int? 
-    var photos: [Photo] {
-        get {
-            [Photo]()
-        }
-        set {
-            print("Appended: \(newValue)")
-        }
-    }
+
+    var photos: Photo?
     
     
     //MARK: - Init
@@ -62,7 +53,7 @@ final class HomePresenter: HomePresenterProtocol {
     
     //MARK: - Methods
     
-    func loadData(from url: String, completion: @escaping ([Photo]) -> Void) {
+    func loadData(from url: String, completion: @escaping (Photo) -> Void) {
         
         apiManager!.getData(from: url) { [weak self] result in
             
@@ -72,9 +63,8 @@ final class HomePresenter: HomePresenterProtocol {
                 
                 switch result {
                 case .success(photos: let photos):
-                    self.photos.append(photos)
-                    completion([photos])
-                    print("Count: \(self.numberOfItems ?? 0)")
+                    self.photos = photos
+                    completion(photos)
                 case .error(error: let error):
                     print("Load data error: \(error.localizedDescription)")
                 }
