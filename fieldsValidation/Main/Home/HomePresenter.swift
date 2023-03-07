@@ -10,6 +10,7 @@ import Foundation
 
 protocol HomeControllerProtocol: AnyObject {
     func showContent()
+    func updateView()
 }
 
 //MARK: - HomeCollectionCellProtocol
@@ -40,7 +41,7 @@ final class HomePresenter: HomePresenterProtocol {
     private var router: RouterProtocol?
     private var apiManager: APIManagerProtocol?
     
-    var numberOfItems: Int?
+    var numberOfItems: Int? 
     var photos: [Photo] {
         get {
             [Photo]()
@@ -72,9 +73,8 @@ final class HomePresenter: HomePresenterProtocol {
                 switch result {
                 case .success(photos: let photos):
                     self.photos.append(photos)
-                    print("Count: \(self.photos.count)")
                     completion([photos])
-                    self.view.showContent()
+                    print("Count: \(self.numberOfItems ?? 0)")
                 case .error(error: let error):
                     print("Load data error: \(error.localizedDescription)")
                 }

@@ -24,11 +24,7 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        
-        presenter.loadData(from: Resources.RURLs.tempURL.rawValue) { [weak self] photos in
-            guard let self else { return }
-            self.presenter.numberOfItems = photos.count
-        }
+        showContent()
     }
 }
 
@@ -69,8 +65,16 @@ private extension HomeController {
 //MARK: - HomeControllerViewProtocol Extension
 
 extension HomeController: HomeControllerProtocol {
-
+    
     func showContent() {
+        presenter.loadData(from: Resources.RURLs.tempURL.rawValue) { [weak self] photos in
+            guard let self else { return }
+            self.presenter.numberOfItems = photos.count
+            self.updateView()
+        }
+    }
+    
+    func updateView() {
         self.collectionView.reloadData()
     }
 }
