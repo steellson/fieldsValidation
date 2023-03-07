@@ -91,8 +91,10 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId, for: indexPath) as! HomeCollectionCell
-        //
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId,
+                                                            for: indexPath) as? HomeCollectionCell else { return UICollectionViewCell() }
+        let title = presenter.photos?.photos?[indexPath.item].id
+        cell.configureCell(with: nil, title: "Title is: \(title ?? 0)")
         return cell
     }
     

@@ -97,12 +97,3 @@ private extension HomeCollectionCell {
     }
     
 }
-
-
-//MARK: HomeCollectionCell View Protocol Extension
-
-extension HomeCollectionCell: HomeConllectionCellProtocol {
-    
-    
-    
-}

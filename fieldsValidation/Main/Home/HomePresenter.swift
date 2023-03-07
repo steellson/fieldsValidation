@@ -13,12 +13,6 @@ protocol HomeControllerProtocol: AnyObject {
     func updateView()
 }
 
-//MARK: - HomeCollectionCellProtocol
-
-protocol HomeConllectionCellProtocol: AnyObject {
-    
-}
-
 
 //MARK: - HomePresenterProtocol
 
