@@ -93,11 +93,15 @@ extension HomeController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId,
                                                             for: indexPath) as? HomeCollectionCell else { return UICollectionViewCell() }
-        let title = presenter.photos?.photos?[indexPath.item].id
-        cell.configureCell(with: nil, title: "Title is: \(title ?? 0)")
+        guard let title = presenter.photos?.photos?[indexPath.item].id else { return UICollectionViewCell() }
+        
+        cell.configureCell(with: nil, title: "Title is: \(title)")
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didTapped(item: indexPath.item)
+    }
 }
 
 //MARK: HomeCollectionView Flow Delegate Extension

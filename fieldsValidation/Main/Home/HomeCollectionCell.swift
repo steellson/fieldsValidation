@@ -38,6 +38,7 @@ final class HomeCollectionCell: UICollectionViewCell {
         self.title.text      = title
     }
     
+
 }
 
 //MARK: - Setup methods extension

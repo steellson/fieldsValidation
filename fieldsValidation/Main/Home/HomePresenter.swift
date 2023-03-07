@@ -13,18 +13,21 @@ protocol HomeControllerProtocol: AnyObject {
     func updateView()
 }
 
-
 //MARK: - HomePresenterProtocol
 
 protocol HomePresenterProtocol: AnyObject {
-    init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol)
+    init(view: HomeControllerProtocol,
+         router: RouterProtocol,
+         apiManager: APIManagerProtocol)
+    
     var photos: Photo? { get set }
     
     func loadData(from url: String, completion: @escaping (Photo) -> Void)
+    func didTapped(item: Int)
 }
 
 
-//MARK: - HomePresenter
+//MARK: - HomePresenterImpl
 
 final class HomePresenter: HomePresenterProtocol {
     
@@ -33,13 +36,15 @@ final class HomePresenter: HomePresenterProtocol {
     private weak var view: HomeControllerProtocol!
     private var router: RouterProtocol?
     private var apiManager: APIManagerProtocol?
-
+    
     var photos: Photo?
     
     
     //MARK: - Init
     
-    required init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol) {
+    required init(view: HomeControllerProtocol,
+                  router: RouterProtocol,
+                  apiManager: APIManagerProtocol) {
         self.view = view
         self.router = router
         self.apiManager = apiManager
@@ -65,5 +70,13 @@ final class HomePresenter: HomePresenterProtocol {
                 
             }
         }
+    }
+    
+    func didTapped(item: Int) {
+        guard let item = photos?.photos?[item].camera else { return }
+        
+        /// PLACE FOR TRANSITION ////
+        
+        print("item: \(item)")
     }
 }
