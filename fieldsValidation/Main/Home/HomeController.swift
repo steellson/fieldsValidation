@@ -13,7 +13,6 @@ final class HomeController: UIViewController {
     
     var presenter: HomePresenterProtocol!
     
-    
     //MARK: - UI Elements
     
     var collectionView: UICollectionView!
@@ -25,6 +24,11 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        
+        presenter.loadData(from: Resources.RURLs.tempURL.rawValue) { [weak self] photos in
+            guard let self else { return }
+            self.presenter.numberOfItems = photos.count
+        }
     }
 }
 
@@ -77,7 +81,7 @@ extension HomeController: HomeControllerProtocol {
 extension HomeController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.photos.count
+        presenter.numberOfItems ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

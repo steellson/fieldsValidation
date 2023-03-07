@@ -24,8 +24,9 @@ protocol HomeConllectionCellProtocol: AnyObject {
 protocol HomePresenterProtocol: AnyObject {
     init(view: HomeControllerProtocol, router: RouterProtocol, apiManager: APIManagerProtocol)
     var photos: [Photo] { get set }
+    var numberOfItems: Int? { get set }
     
-    func loadData(from url: String)
+    func loadData(from url: String, completion: @escaping ([Photo]) -> Void)
 }
 
 
@@ -39,13 +40,13 @@ final class HomePresenter: HomePresenterProtocol {
     private var router: RouterProtocol?
     private var apiManager: APIManagerProtocol?
     
+    var numberOfItems: Int?
     var photos: [Photo] {
         get {
             [Photo]()
         }
         set {
             print("Appended: \(newValue)")
-            view.showContent()
         }
     }
     
@@ -56,13 +57,11 @@ final class HomePresenter: HomePresenterProtocol {
         self.view = view
         self.router = router
         self.apiManager = apiManager
-        
-        loadData(from: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&page=2&api_key=MqLemK0jlboyscMMHnqpsCYHC1AwJI915p87A0uV")
     }
     
     //MARK: - Methods
     
-    func loadData(from url: String) {
+    func loadData(from url: String, completion: @escaping ([Photo]) -> Void) {
         
         apiManager!.getData(from: url) { [weak self] result in
             
@@ -73,7 +72,9 @@ final class HomePresenter: HomePresenterProtocol {
                 switch result {
                 case .success(photos: let photos):
                     self.photos.append(photos)
-                    
+                    print("Count: \(self.photos.count)")
+                    completion([photos])
+                    self.view.showContent()
                 case .error(error: let error):
                     print("Load data error: \(error.localizedDescription)")
                 }

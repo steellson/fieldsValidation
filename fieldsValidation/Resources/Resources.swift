@@ -71,5 +71,11 @@ enum Resources {
         case loginAlertWrongMailOrPass     = "Wrong mail or password..."
     }
     
+    
+    //MARK: - URL's
+    
+    enum RURLs: String {
+        case tempURL = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10&page=2&api_key=MqLemK0jlboyscMMHnqpsCYHC1AwJI915p87A0uV"
+    }
 }
 
