@@ -9,7 +9,6 @@ import Foundation
 //MARK: - HomeControllerProtocol
 
 protocol HomeControllerProtocol: AnyObject {
-    func showContent()
     func updateView()
 }
 
@@ -22,7 +21,7 @@ protocol HomePresenterProtocol: AnyObject {
     
     var photos: Photo? { get set }
     
-    func loadData(from url: String, completion: @escaping (Photo) -> Void)
+    func loadData(from url: String)
     func didTapped(item: Int)
 }
 
@@ -52,7 +51,7 @@ final class HomePresenter: HomePresenterProtocol {
     
     //MARK: - Methods
     
-    func loadData(from url: String, completion: @escaping (Photo) -> Void) {
+    func loadData(from url: String) {
         
         apiManager!.getData(from: url) { [weak self] result in
             
@@ -63,7 +62,7 @@ final class HomePresenter: HomePresenterProtocol {
                 switch result {
                 case .success(photos: let photos):
                     self.photos = photos
-                    completion(photos)
+                    self.view.updateView()
                 case .error(error: let error):
                     print("Load data error: \(error.localizedDescription)")
                 }
@@ -71,12 +70,11 @@ final class HomePresenter: HomePresenterProtocol {
             }
         }
     }
+
     
     func didTapped(item: Int) {
         guard let item = photos?.photos?[item].camera else { return }
-        
         router?.goDetail()
-        
         print("item: \(item)")
     }
 }
