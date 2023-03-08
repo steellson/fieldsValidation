@@ -10,9 +10,9 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UINavigationBar.appearance().tintColor = Resources.RColors.purpleBlueDirtyColor
         
         return true
     }

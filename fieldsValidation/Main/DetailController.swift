@@ -33,7 +33,7 @@ final class DetailController: UIViewController {
 private extension DetailController {
     
     func setupView() {
-        view.backgroundColor = Resources.RColors.defaultBackgroundColor
+        view.backgroundColor = Resources.RColors.purpleMainColor
 
         setupLayout()
         setupNavBar()

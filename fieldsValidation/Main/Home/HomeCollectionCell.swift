@@ -46,7 +46,7 @@ final class HomeCollectionCell: UICollectionViewCell {
 private extension HomeCollectionCell {
     
     func setupCell() {
-        backgroundColor = Resources.RColors.defaultTextFieldGrayColor
+        backgroundColor = Resources.RColors.grayColor
 
         setupImageView()
         setupTitle()

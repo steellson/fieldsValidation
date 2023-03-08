@@ -60,7 +60,7 @@ final class AlertController: UIViewController {
     //MARK: - Setup Methods
 
     private func setupAlertContainer() {
-        alertContainer.backgroundColor   = Resources.RColors.alertContainerBGColor
+        alertContainer.backgroundColor   = Resources.RColors.purpleDirtyColor
         alertContainer.layer.borderWidth = 2
         alertContainer.layer.borderColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
         alertContainer.squadShadow()
@@ -68,7 +68,7 @@ final class AlertController: UIViewController {
         alertContainer.addSubview(titleElement)
         alertContainer.addSubview(alertMessage)
         
-        titleElement.backgroundColor = Resources.RColors.alertTitleTextColor
+        titleElement.backgroundColor = Resources.RColors.blueDarkColor
         titleElement.squadShadow()
         
         setupAlertTextCongifuration()
@@ -78,18 +78,18 @@ final class AlertController: UIViewController {
     
     private func setupAlertTextCongifuration() {
         alertTitle.font            = Resources.RFonts.helveticaBold28
-        alertTitle.textColor       = Resources.RColors.alertTitleTextColor
+        alertTitle.textColor       = Resources.RColors.blueDarkColor
         alertTitle.textAlignment   = .left
         alertTitle.numberOfLines   = 1
         
         alertMessage.font          = Resources.RFonts.helvetica20
-        alertMessage.textColor     = Resources.RColors.alertMessageTextColor
+        alertMessage.textColor     = Resources.RColors.purpleBlueDirtyColor
         alertMessage.textAlignment = .left
         alertMessage.numberOfLines = 0
     }
     
     private func setupButtonSection() {
-        buttonSection.backgroundColor   = Resources.RColors.alertContainerBGColor
+        buttonSection.backgroundColor   = Resources.RColors.purpleDirtyColor
         buttonSection.layer.borderWidth = 2
         buttonSection.layer.borderColor = .init(red: 0, green: 0, blue: 0, alpha: 1)
         buttonSection.axis              = .vertical
@@ -97,13 +97,13 @@ final class AlertController: UIViewController {
         buttonSection.squadShadow()
         buttonSection.addArrangedSubview(okButton)
         
-        okButton.backgroundColor        = Resources.RColors.alertContainerBGColor
+        okButton.backgroundColor        = Resources.RColors.purpleDirtyColor
         okButton.layer.borderWidth      = 2
         okButton.layer.borderColor      = .init(red: 0, green: 0, blue: 0, alpha: 1)
         okButton.titleLabel?.font       = Resources.RFonts.helveticaBold20
         okButton.setTitle("OK!", for: .normal)
-        okButton.setTitleColor(Resources.RColors.alertTitleTextColor, for: .normal)
-        okButton.setTitleColor(Resources.RColors.alertMessageTextColor, for: .highlighted)
+        okButton.setTitleColor(Resources.RColors.blueDarkColor, for: .normal)
+        okButton.setTitleColor(Resources.RColors.purpleBlueDirtyColor, for: .highlighted)
         okButton.addTarget(self, action: #selector(okButtonAction), for: .touchUpInside)
         
         view.addSubview(buttonSection)
@@ -125,7 +125,7 @@ final class AlertController: UIViewController {
 private extension AlertController {
     
     func setupView() {
-        view.backgroundColor   = Resources.RColors.alertBGColor
+        view.backgroundColor   = Resources.RColors.blackOpacityColor
         
         setupAlertContainer()
         setupButtonSection()

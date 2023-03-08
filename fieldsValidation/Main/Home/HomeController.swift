@@ -34,7 +34,7 @@ final class HomeController: UIViewController {
 private extension HomeController {
     
     func setupView() {
-        view.backgroundColor = Resources.RColors.defaultBackgroundColor
+        view.backgroundColor = Resources.RColors.purpleMainColor
         
         setupNavBar()
         setupCollectionView()

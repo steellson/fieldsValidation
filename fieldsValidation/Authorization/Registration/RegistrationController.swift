@@ -17,19 +17,19 @@ final class RegistrationController: UIViewController {
     //MARK: - UI Elements
     
     let registrationTitle = UILabel(Resources.RFonts.helveticaBold40, .white, .center, "Registration")
-    let firstNameField = UITextField().buildAuthField(with: "First Name", Resources.RColors.registrationFieldGrayColor.cgColor)
-    var firstNameLabel = UILabel(Resources.RFonts.helveticaBold15,Resources.RColors.validationLabelColor, .left, "Required field")
-    let secondNameField = UITextField().buildAuthField(with: "Second Name", Resources.RColors.registrationFieldGrayColor.cgColor)
-    var secondNameLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let birthdayField = UITextField().buildAuthField(with: "Birthday", Resources.RColors.registrationFieldGrayColor.cgColor)
-    var birthdayLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let firstNameField = UITextField().buildAuthField(with: "First Name", Resources.RColors.saladColor.cgColor)
+    var firstNameLabel = UILabel(Resources.RFonts.helveticaBold15,Resources.RColors.purpleDeepColor, .left, "Required field")
+    let secondNameField = UITextField().buildAuthField(with: "Second Name", Resources.RColors.saladColor.cgColor)
+    var secondNameLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.purpleDeepColor, .left, "Required field")
+    let birthdayField = UITextField().buildAuthField(with: "Birthday", Resources.RColors.saladColor.cgColor)
+    var birthdayLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.purpleDeepColor, .left, "Required field")
     let ageDatePicker = UIDatePicker()
-    let phoneField = UITextField().buildAuthField(with: "Phone", Resources.RColors.registrationFieldGrayColor.cgColor, false, .numberPad)
-    var phoneLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let emailField = UITextField().buildAuthField(with: "Email", Resources.RColors.registrationFieldGrayColor.cgColor)
-    var emailLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
-    let passwordField = UITextField().buildAuthField(with: "Password", Resources.RColors.registrationFieldGrayColor.cgColor, true)
-    var passwordLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.validationLabelColor, .left, "Required field")
+    let phoneField = UITextField().buildAuthField(with: "Phone", Resources.RColors.saladColor.cgColor, false, .numberPad)
+    var phoneLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.purpleDeepColor, .left, "Required field")
+    let emailField = UITextField().buildAuthField(with: "Email", Resources.RColors.saladColor.cgColor)
+    var emailLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.purpleDeepColor, .left, "Required field")
+    let passwordField = UITextField().buildAuthField(with: "Password", Resources.RColors.saladColor.cgColor, true)
+    var passwordLabel = UILabel(Resources.RFonts.helveticaBold15, Resources.RColors.purpleDeepColor, .left, "Required field")
     var goRegButton = UIButton("GO REG!", .blue, .white, 24)
     
     lazy var stackView = UIStackView([
@@ -74,7 +74,7 @@ final class RegistrationController: UIViewController {
 extension RegistrationController {
     
     private func setupView() {
-        view.backgroundColor = Resources.RColors.defaultBackgroundColor
+        view.backgroundColor = Resources.RColors.purpleMainColor
         
         view.addSubview(registrationTitle)
         view.addSubview(stackView)
@@ -134,10 +134,10 @@ extension RegistrationController {
         
         if result.isValid(validType: validType) {
             label.text = validMessage
-            label.textColor = Resources.RColors.validLabelColor
+            label.textColor = Resources.RColors.blueLightColor
         } else {
             label.text = wrongMessage
-            label.textColor = Resources.RColors.invalidLabelColor
+            label.textColor = Resources.RColors.redDarkColor
         }
     }
     
