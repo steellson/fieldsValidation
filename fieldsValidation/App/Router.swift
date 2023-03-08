@@ -15,6 +15,7 @@ protocol RouterProtocol {
     func authorizationInitialView()
     func goToRegistration()
     func goHome()
+    func goDetail()
 }
 
 
@@ -36,7 +37,7 @@ final class Router: RouterProtocol {
     }
     
     
-    //MARK: - Methods
+    //MARK: - Authorization
     
     func authorizationInitialView() {
         if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
@@ -56,10 +57,23 @@ final class Router: RouterProtocol {
         }
     }
     
+    //MARK: - Main
+    
     func goHome() {
         if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
             let homeController = moduleBuilder.buildHomeController(router: self)
             navigationController.pushViewController(homeController, animated: true)
+        } else {
+            print("GoHome Debug")
+        }
+    }
+    
+    func goDetail() {
+        if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
+            let detailController = moduleBuilder.buildDetailController(router: self)
+            navigationController.pushViewController(detailController, animated: true)
+        } else {
+            print("GoDetail Debug")
         }
     }
 }

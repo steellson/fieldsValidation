@@ -13,6 +13,7 @@ protocol ModuleBuilderProtocol: ModuleBuilder {
     func buildLoginController(router: RouterProtocol) -> UIViewController
     func buildRegistrationController(router: RouterProtocol) -> UIViewController
     func buildHomeController(router: RouterProtocol) -> UIViewController
+    func buildDetailController(router: RouterProtocol) -> UIViewController
 }
 
 
@@ -44,4 +45,11 @@ final class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
+    public func buildDetailController(router: RouterProtocol) -> UIViewController {
+        let view        = DetailController()
+        let apiManager  = APIManager()
+        let presenter   = DetailPresenter(view: view, router: router, apiManager: apiManager)
+        view.presenter  = presenter
+        return view
+    }
 }

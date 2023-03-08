@@ -75,7 +75,7 @@ final class HomePresenter: HomePresenterProtocol {
     func didTapped(item: Int) {
         guard let item = photos?.photos?[item].camera else { return }
         
-        /// PLACE FOR TRANSITION ////
+        router?.goDetail()
         
         print("item: \(item)")
     }
