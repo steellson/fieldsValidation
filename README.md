@@ -2,8 +2,8 @@
 
 ## *This app is being developed to visually demonstrate part of the skills of the owner of this repository, that is, me :)* 
 
-###### No destination point, just basic important cases. Always in progress.
-##### Just see below, pics attached!
+##### 🛠 MVP + Router + Assembly 🛠
+###### 🔻 Just see below, pics attached! 🔻
 
 ### **Cases in deal:**
 
