@@ -110,19 +110,19 @@
 				3D54249B29B11E4100589651 /* HomeController.swift */,
 				3D54249D29B11FA100589651 /* HomeControllerLayout.swift */,
 				3D54249F29B1211000589651 /* HomeCollectionCell.swift */,
+				3D5424B929B9127000589651 /* Detail */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		3D5424B229B8B68A00589651 /* Detail */ = {
+		3D5424B929B9127000589651 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				3D5424B329B8B6E100589651 /* DetailPresenter.swift */,
 				3D5424B529B8B6EE00589651 /* DetailController.swift */,
 				3D5424B729B8B6F700589651 /* DetailControllerLayout.swift */,
 			);
-			name = Detail;
-			path = Main;
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		3D7EAF32297D3C400006A39F = {
@@ -147,7 +147,6 @@
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
 				3D54249A29B11DD100589651 /* Main */,
-				3D5424B229B8B68A00589651 /* Detail */,
 				3D5424A129B1299300589651 /* Photo */,
 				3DE61574298046FC00ADA1CF /* User */,
 				3DE6156E297ED9CA00ADA1CF /* Extensions */,

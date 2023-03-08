@@ -66,7 +66,6 @@ final class HomePresenter: HomePresenterProtocol {
                 case .error(error: let error):
                     print("Load data error: \(error.localizedDescription)")
                 }
-                
             }
         }
     }

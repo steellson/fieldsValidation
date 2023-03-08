@@ -15,7 +15,7 @@ final class DetailController: UIViewController {
     
     //MARK: - UI Elements
     
-    let titleLabel  = UILabel(Resources.RFonts.helveticaBold40, Resources.RColors.grayColor, .left, "INFO")
+    let titleLabel  = UILabel(Resources.RFonts.helveticaBold40, .white, .left, "INFO")
     
     lazy var containerView = UIView(bgColor: Resources.RColors.grayColor, subViews: [mainView], shadow: true, border: 0.5)
     lazy var mainView = UIView(bgColor: .black, subViews: [

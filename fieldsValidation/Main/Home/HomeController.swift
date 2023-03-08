@@ -15,7 +15,7 @@ final class HomeController: UIViewController {
     
     //MARK: - UI Elements
     
-    let titleLabel = UILabel(Resources.RFonts.helveticaBold40, Resources.RColors.grayColor, .left, "PICK FOR MORE")
+    let titleLabel = UILabel(Resources.RFonts.helveticaBold40, .white, .left, "PICK FOR MORE")
     var collectionView: UICollectionView!
     
     
