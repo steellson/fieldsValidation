@@ -42,7 +42,7 @@ private extension HomeController {
     }
     
     func setupNavBar() {
-        //
+        navigationItem.hidesBackButton = true
     }
     
     func setupCollectionView() {

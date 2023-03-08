@@ -43,6 +43,7 @@ enum Resources {
     
     enum RImages {
         static let unicornImage = UIImage(named: "unicorn")!
+        static let defaultImage = UIImage(named: "imageDefault")!
     }
     
     
