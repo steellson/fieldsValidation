@@ -17,7 +17,7 @@ protocol DetailControllerViewProtocol: AnyObject {
 protocol DetailPresenterProtocol: AnyObject {
     init(view: DetailControllerViewProtocol,
          router: RouterProtocol,
-         apiManager: APIManagerProtocol)
+         apiManager: NetworkManagerProtocol)
 
 }
 
@@ -30,13 +30,13 @@ final class DetailPresenter: DetailPresenterProtocol {
     
     private weak var view: DetailControllerViewProtocol!
     private var router: RouterProtocol?
-    private var apiManager: APIManagerProtocol?
+    private var apiManager: NetworkManagerProtocol?
     
     //MARK: - Init
     
     required init(view: DetailControllerViewProtocol,
                   router: RouterProtocol,
-                  apiManager: APIManagerProtocol) {
+                  apiManager: NetworkManagerProtocol) {
         self.view = view
         self.router = router
         self.apiManager = apiManager
