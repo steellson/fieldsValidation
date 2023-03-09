@@ -23,6 +23,7 @@ protocol DetailPresenterProtocol: AnyObject {
     var item: Photo.PhotoElement? { get set }
     
     func viewDidLoaded()
+    func getImage(from url: String, completion: @escaping (Any) -> Void)
 }
 
 
@@ -48,7 +49,7 @@ final class DetailPresenter: DetailPresenterProtocol {
         self.view           = view
         self.router         = router
         self.networkManager = networkManager
-        self.item          = item
+        self.item           = item
     }
     
     
@@ -57,11 +58,33 @@ final class DetailPresenter: DetailPresenterProtocol {
     func viewDidLoaded() {
         view.configureView()
     }
+    
+    func getImage(from url: String, completion: @escaping (Any) -> Void) {
+        loadImageData(from: url) { data in
+            completion(data)
+        }
+    }
 }
 
 
-//MARK: - DetailPresenter Private Extension
+//MARK: HomePresenter Private Extension
 
-extension DetailPresenter {
+private extension DetailPresenter {
     
+    func loadImageData(from url: String, completion: @escaping (Any) -> Void) {
+        
+        networkManager?.getImage(from: url) { result in
+            
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .success(items: let items):
+                    guard let items = items as? Data else { return }
+                    completion(items)
+                case .error(error: let error):
+                    completion(error)
+                }
+            }
+        }
+    }
 }

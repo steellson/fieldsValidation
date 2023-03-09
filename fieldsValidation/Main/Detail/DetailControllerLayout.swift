@@ -70,8 +70,8 @@ extension DetailController {
 
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20),
-            imageView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 220),
+            imageView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            imageView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
             imageView.heightAnchor.constraint(equalToConstant: 240)
         ])
     }

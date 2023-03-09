@@ -61,7 +61,15 @@ private extension DetailController {
 extension DetailController: DetailControllerViewProtocol {
     
     func configureView() {
-        guard let item = presenter.item else { return }
+        guard let item = presenter.item,
+              let imageUrl = presenter.item?.imgSrc else { return }
+        
+        presenter.getImage(from: imageUrl) { [weak self] item in
+            guard let data = item as? Data else { return }
+            let image = UIImage(data: data)
+            self?.imageView.image  = image
+        }
+        
         self.cameraNameLabel.text  = "Camera: \(item.camera?.name?.rawValue ?? "loading error")"
         self.roverNameLabel.text   = "Rover: \(item.rover?.name?.rawValue ?? "loading error")"
         self.earthDateLabel.text   = "Earth date: \(item.earthDate ?? "loading error")"
