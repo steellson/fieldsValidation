@@ -11,7 +11,7 @@ import UIKit
 
 final class RegistrationController: UIViewController {
     
-    var presenter      : AuthorizationPresenterProtocol!
+    var presenter      : RegistrationPresenter!
     var keyboardHelper : KeyboardContentPusher!
     
     //MARK: - UI Elements
@@ -99,7 +99,7 @@ extension RegistrationController {
 
 //MARK: - RegistrationControllerViewProtocol Extension
 
-extension RegistrationController: AuthorizationControllerProtocol {
+extension RegistrationController: RegistrationControllerProtocol {
     
     func show() {
         //

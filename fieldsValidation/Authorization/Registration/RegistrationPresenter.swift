@@ -1,31 +1,26 @@
 //
-//  AuthorizationPresenter.swift
+//  RegistrationPresenter.swift
 //
 //  Created by Steellson
 
 
 import Foundation
 
-//MARK: - AuthorizationControllerProtocol
+//MARK: - RegistrationControllerProtocol
 
-protocol AuthorizationControllerProtocol: AnyObject {
-    func show()
+protocol RegistrationControllerProtocol: AnyObject {
+    
 }
 
 
-//MARK: - AuthorizationPresenterProtocol
+//MARK: - RegistrationPresenterProtocol
 
-protocol AuthorizationPresenterProtocol: AnyObject {
-    init(view: AuthorizationControllerProtocol,
+protocol RegistrationPresenterProtocol: AnyObject {
+    init(view: RegistrationControllerProtocol,
          userDefaultsManager: UserDefaultsManagerProtocol,
          router: RouterProtocol)
     
-    func findUser(by mail: String) -> User?
     func ageIsValid() -> Bool
-    
-    func signInButtonDidTapped()
-    func signUpButtonDidTapped()
-    
     func setupNumberMask(with text: String,
                          string: String,
                          mask: String,
@@ -34,20 +29,20 @@ protocol AuthorizationPresenterProtocol: AnyObject {
 }
 
 
-//MARK: - AuthorizationPresenter
+//MARK: - RegistrationPresenterImpl
 
-final class AuthorizationPresenter: AuthorizationPresenterProtocol {
+final class RegistrationPresenter: RegistrationPresenterProtocol {
     
     //MARK: Variables
     
-    private weak var view           : AuthorizationControllerProtocol!
+    private weak var view           : RegistrationControllerProtocol!
     private var userDefaultsManager : UserDefaultsManagerProtocol!
     private var router              : RouterProtocol!
     
     
     //MARK: - Init
     
-    required init(view: AuthorizationControllerProtocol,
+    required init(view: RegistrationControllerProtocol,
                   userDefaultsManager: UserDefaultsManagerProtocol,
                   router: RouterProtocol) {
         
@@ -58,15 +53,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
     
     
     //MARK: - Methods
-    
-    func findUser(by mail: String) -> User? {
-        for user in userDefaultsManager.users {
-            if user.email.lowercased() == mail.lowercased() {
-                return user
-            }
-        }
-        return nil
-    }
     
     func ageIsValid() -> Bool {
         if let view = view as? RegistrationController {
@@ -83,41 +69,6 @@ final class AuthorizationPresenter: AuthorizationPresenterProtocol {
             print("Validation method error")
         }
         return false
-    }
-    
-    func signInButtonDidTapped() {
-        if let view = view as? LoginController {
-            let mail     = view.emailField.text ?? ""
-            let password = view.passwordField.text ?? ""
-            let user     = view.presenter.findUser(by: mail)
-            
-            if user != nil  {
-                view.emailField.textColor = .systemGreen
-                if user?.password == password {
-                    router.goHome()
-                    print("Success login of \(user!)")
-                } else {
-                    let alert  = AlertController(header: nil,
-                                                 message: Resources.Strings.loginAlertWrongMailOrPass.rawValue,
-                                                 actionPossibility: true)
-                    view.present(alert, animated: true)
-                }
-            } else {
-                view.emailField.textColor = .red
-                
-                let alert  = AlertController(header: Resources.Strings.loginAlertUserNotFoundTitle.rawValue,
-                                             message: Resources.Strings.loginAlertUserNotFound.rawValue,
-                                             actionPossibility: true)
-                view.present(alert, animated: true)
-                
-            }
-        } else {
-            print("SignIn button error")
-        }
-    }
-    
-    func signUpButtonDidTapped() {
-        router.goToRegistration()
     }
     
     func goRegButtonDidTapped() {

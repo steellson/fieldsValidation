@@ -24,7 +24,7 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     public func buildLoginController(router: RouterProtocol) -> UIViewController {
         let view                = LoginController()
         let userDefaultsManager = UserDefaultsManager()
-        let presenter           = AuthorizationPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
+        let presenter           = LoginPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
         view.presenter          = presenter
         return view
     }
@@ -32,7 +32,7 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     public func buildRegistrationController(router: RouterProtocol) -> UIViewController {
         let view                = RegistrationController()
         let userDefaultsManager = UserDefaultsManager()
-        let presenter           = AuthorizationPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
+        let presenter           = RegistrationPresenter(view: view, userDefaultsManager: userDefaultsManager, router: router)
         view.presenter          = presenter
         return view
     }

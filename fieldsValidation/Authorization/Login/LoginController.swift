@@ -11,7 +11,7 @@ import UIKit
 
 final class LoginController: UIViewController {
     
-    var presenter      : AuthorizationPresenterProtocol!
+    var presenter      : LoginPresenterProtocol!
     var keyboardHelper : KeyboardContentPusher!
     let validType      : String.ValidTypes = .name
     
@@ -78,7 +78,7 @@ extension LoginController {
 
 //MARK: - LoginControllerViewProtocol Extension
 
-extension LoginController: AuthorizationControllerProtocol {
+extension LoginController: LoginControllerProtocol {
 
     func show() {
         
