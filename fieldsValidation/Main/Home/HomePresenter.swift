@@ -17,11 +17,12 @@ protocol HomeControllerProtocol: AnyObject {
 protocol HomePresenterProtocol: AnyObject {
     init(view: HomeControllerProtocol,
          router: RouterProtocol,
-         apiManager: NetworkManagerProtocol)
+         networkManager: NetworkManagerProtocol)
     
     var photos: Photo? { get set }
     
-    func loadData(from url: String)
+    func viewDidLoaded()
+    func getImage(from url: String, completion: @escaping (Any) -> Void)
     func didTapped(item: Int)
 }
 
@@ -34,8 +35,8 @@ final class HomePresenter: HomePresenterProtocol {
     
     private weak var view: HomeControllerProtocol!
     private var router: RouterProtocol?
-    private var apiManager: NetworkManagerProtocol?
-    
+    private var networkManager: NetworkManagerProtocol?
+
     var photos: Photo?
     
     
@@ -43,17 +44,43 @@ final class HomePresenter: HomePresenterProtocol {
     
     required init(view: HomeControllerProtocol,
                   router: RouterProtocol,
-                  apiManager: NetworkManagerProtocol) {
-        self.view = view
-        self.router = router
-        self.apiManager = apiManager
+                  networkManager: NetworkManagerProtocol) {
+        
+        self.view           = view
+        self.router         = router
+        self.networkManager = networkManager
     }
     
     //MARK: - Methods
     
+    func viewDidLoaded() {
+        loadData(from: Resources.RURLs.tempURL.rawValue)
+    }
+    
+    func getImage(from url: String, completion: @escaping (Any) -> Void) {
+        
+        loadImageData(from: url) { data in
+            completion(data)
+        }
+            
+    }
+    
+    
+    func didTapped(item: Int) {
+        guard let item = photos?.photos?[item].camera else { return }
+        router?.goDetail()
+        print("item: \(item)")
+    }
+}
+
+
+//MARK: HomePresenter Private Extension
+
+private extension HomePresenter {
+    
     func loadData(from url: String) {
         
-        apiManager!.getData(from: url, method: .GET, model: photos) { [weak self] result in
+        networkManager!.getData(from: url, method: .GET, model: photos) { [weak self] result in
             
             guard let self = self else { return }
             
@@ -70,11 +97,21 @@ final class HomePresenter: HomePresenterProtocol {
             }
         }
     }
-
     
-    func didTapped(item: Int) {
-        guard let item = photos?.photos?[item].camera else { return }
-        router?.goDetail()
-        print("item: \(item)")
+    func loadImageData(from url: String, completion: @escaping (Any) -> Void) {
+        
+        networkManager?.getImage(from: url) { result in
+            
+            DispatchQueue.main.async {
+                
+                switch result {
+                case .success(items: let items):
+                    guard let items = items as? Data else { return }
+                    completion(items)
+                case .error(error: let error):
+                    completion(error)
+                }
+            }
+        }
     }
 }

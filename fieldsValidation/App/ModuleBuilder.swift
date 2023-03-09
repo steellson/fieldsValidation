@@ -39,16 +39,16 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     
     public func buildHomeController(router: RouterProtocol) -> UIViewController {
         let view        = HomeController()
-        let apiManager  = NetworkManager()
-        let presenter   = HomePresenter(view: view, router: router, apiManager: apiManager)
+        let networkMan  = NetworkManager()
+        let presenter   = HomePresenter(view: view, router: router, networkManager: networkMan)
         view.presenter  = presenter
         return view
     }
     
     public func buildDetailController(router: RouterProtocol) -> UIViewController {
         let view        = DetailController()
-        let apiManager  = NetworkManager()
-        let presenter   = DetailPresenter(view: view, router: router, apiManager: apiManager)
+        let networkMan  = NetworkManager()
+        let presenter   = DetailPresenter(view: view, router: router, networkManager: networkMan)
         view.presenter  = presenter
         return view
     }

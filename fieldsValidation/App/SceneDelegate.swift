@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window               = window
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
-        router.authorizationInitialView()
+        router.goHome()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

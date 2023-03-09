@@ -34,6 +34,9 @@ protocol NetworkManagerProtocol: AnyObject {
                                method: HTTPMethod?,
                                model: T,
                                completion: @escaping (RequestResult) -> Void)
+    
+    func getImage(from url: String,
+                  completion: @escaping (RequestResult) -> Void)
 }
 
 
@@ -82,4 +85,27 @@ extension NetworkManager: NetworkManagerProtocol {
         task.resume()
     }
     
+    
+    func getImage(from url: String, completion: @escaping (RequestResult) -> Void) {
+        
+        guard let url = URL(string: url) else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            var result: RequestResult
+            
+            defer {
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+            
+            if error == nil, let data = data {
+                result = .success(items: data)
+            } else {
+                result = .error(error: .urlSessionTaskError)
+            }
+        }
+        task.resume()
+    }
 }

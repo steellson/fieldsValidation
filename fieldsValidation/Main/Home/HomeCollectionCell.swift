@@ -55,13 +55,18 @@ private extension HomeCollectionCell {
     }
     
     func setupImageView() {
-        imageView = UIImageView()
+        imageView               = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.contentMode   = .scaleAspectFill
+        
         addSubview(imageView)
     }
     
     func setupTitle() {
-        title = UILabel()
-        title.textColor = .cyan
+        title           = UILabel()
+        title.textColor = Resources.RColors.grayColor
+        title.font      = Resources.RFonts.helvetica15
+        
         imageView.addSubview(title)
     }
 }
@@ -80,8 +85,8 @@ private extension HomeCollectionCell {
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
@@ -90,10 +95,8 @@ private extension HomeCollectionCell {
         title.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 10),
-            title.leadingAnchor.constraint(equalTo: imageView.leadingAnchor, constant: 15),
-            title.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
-            title.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -10)
+            title.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -5),
+            title.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -5)
         ])
     }
     

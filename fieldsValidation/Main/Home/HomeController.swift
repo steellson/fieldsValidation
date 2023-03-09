@@ -25,7 +25,7 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        presenter.loadData(from: Resources.RURLs.tempURL.rawValue)
+        presenter.viewDidLoaded()
     }
 }
 
@@ -84,10 +84,16 @@ extension HomeController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:  HomeCollectionCell.cellId,
-                                                            for: indexPath) as? HomeCollectionCell else { return UICollectionViewCell() }
-        guard let title = presenter.photos?.photos?[indexPath.item].id else { return UICollectionViewCell() }
+                                                            for: indexPath) as? HomeCollectionCell,
+              let title = presenter.photos?.photos?[indexPath.item].earthDate,
+              let imageUrl = presenter.photos?.photos?[indexPath.item].imgSrc else { return UICollectionViewCell() }
+                
+        presenter.getImage(from: imageUrl) { data in
+            guard let data = data as? Data else { return }
+            let image = UIImage(data: data)
+            cell.configureCell(with: image, title: title)
+        }
         
-        cell.configureCell(with: nil, title: "Title is: \(title)")
         return cell
     }
     

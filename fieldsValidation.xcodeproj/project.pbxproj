@@ -125,6 +125,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		3D5424C529B9EF6400589651 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3D5424A129B1299300589651 /* Photo */,
+				3DE61574298046FC00ADA1CF /* User */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		3D7EAF32297D3C400006A39F = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +156,7 @@
 				3D7EAF52297D3DAF0006A39F /* App */,
 				3DE6155C297DADD700ADA1CF /* Authorization */,
 				3D54249A29B11DD100589651 /* Main */,
-				3D5424A129B1299300589651 /* Photo */,
-				3DE61574298046FC00ADA1CF /* User */,
+				3D5424C529B9EF6400589651 /* Entities */,
 				3DE6156E297ED9CA00ADA1CF /* Extensions */,
 				3DE61569297EC6B100ADA1CF /* Helpers */,
 				3DE615772980479100ADA1CF /* Services */,
