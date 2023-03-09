@@ -36,7 +36,7 @@ final class DetailController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        showContent()
+        presenter.viewDidLoaded()
     }
 }
 
@@ -60,7 +60,7 @@ private extension DetailController {
 
 extension DetailController: DetailControllerViewProtocol {
     
-    func showContent() {
+    func configureView() {
         guard let item = presenter.item else { return }
         self.cameraNameLabel.text  = "Camera: \(item.camera?.name?.rawValue ?? "loading error")"
         self.roverNameLabel.text   = "Rover: \(item.rover?.name?.rawValue ?? "loading error")"

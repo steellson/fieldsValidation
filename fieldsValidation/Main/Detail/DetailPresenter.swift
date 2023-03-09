@@ -9,7 +9,7 @@ import Foundation
 //MARK: - DetailControllerViewProtocol
 
 protocol DetailControllerViewProtocol: AnyObject {
-    func showContent()
+    func configureView()
 }
 
 //MARK: - DetailPresenterProtocol
@@ -21,6 +21,8 @@ protocol DetailPresenterProtocol: AnyObject {
          item: Photo.PhotoElement)
     
     var item: Photo.PhotoElement? { get set }
+    
+    func viewDidLoaded()
 }
 
 
@@ -52,5 +54,14 @@ final class DetailPresenter: DetailPresenterProtocol {
     
     //MARK: - Methods
     
-   
+    func viewDidLoaded() {
+        view.configureView()
+    }
+}
+
+
+//MARK: - DetailPresenter Private Extension
+
+extension DetailPresenter {
+    
 }
