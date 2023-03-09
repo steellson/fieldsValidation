@@ -23,7 +23,7 @@ protocol HomePresenterProtocol: AnyObject {
     
     func viewDidLoaded()
     func getImage(from url: String, completion: @escaping (Any) -> Void)
-    func didTapped(item: Int)
+    func didTapped(itemPosition: Int, item: Photo.PhotoElement)
 }
 
 
@@ -58,18 +58,15 @@ final class HomePresenter: HomePresenterProtocol {
     }
     
     func getImage(from url: String, completion: @escaping (Any) -> Void) {
-        
         loadImageData(from: url) { data in
             completion(data)
         }
-            
     }
     
     
-    func didTapped(item: Int) {
-        guard let item = photos?.photos?[item].camera else { return }
-        router?.goDetail()
-        print("item: \(item)")
+    func didTapped(itemPosition: Int, item: Photo.PhotoElement) {
+        guard let item = photos?.photos?[itemPosition] else { return }
+        router?.goDetail(with: item)
     }
 }
 

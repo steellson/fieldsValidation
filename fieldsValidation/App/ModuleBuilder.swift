@@ -13,7 +13,7 @@ protocol ModuleBuilderProtocol: ModuleBuilder {
     func buildLoginController(router: RouterProtocol) -> UIViewController
     func buildRegistrationController(router: RouterProtocol) -> UIViewController
     func buildHomeController(router: RouterProtocol) -> UIViewController
-    func buildDetailController(router: RouterProtocol) -> UIViewController
+    func buildDetailController(router: RouterProtocol, item: Photo.PhotoElement) -> UIViewController
 }
 
 
@@ -45,7 +45,7 @@ final class ModuleBuilder: ModuleBuilderProtocol {
         return view
     }
     
-    public func buildDetailController(router: RouterProtocol) -> UIViewController {
+    public func buildDetailController(router: RouterProtocol, item: Photo.PhotoElement) -> UIViewController {
         let view        = DetailController()
         let networkMan  = NetworkManager()
         let presenter   = DetailPresenter(view: view, router: router, networkManager: networkMan)

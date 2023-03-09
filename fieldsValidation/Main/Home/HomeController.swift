@@ -15,7 +15,7 @@ final class HomeController: UIViewController {
     
     //MARK: - UI Elements
     
-    let titleLabel = UILabel(Resources.RFonts.helveticaBold40, .white, .left, "PICK FOR MORE")
+    let titleLabel = UILabel(Resources.RFonts.helveticaBold40, .white, .left, "SELECT PHOTO")
     var collectionView: UICollectionView!
     
     
@@ -98,7 +98,8 @@ extension HomeController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didTapped(item: indexPath.item)
+        guard let photo = presenter.photos?.photos?[indexPath.item] else { return }
+        presenter.didTapped(itemPosition: indexPath.item, item: photo)
     }
 }
 

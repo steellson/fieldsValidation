@@ -15,7 +15,7 @@ protocol RouterProtocol {
     func authorizationInitialView()
     func goToRegistration()
     func goHome()
-    func goDetail()
+    func goDetail(with item: Photo.PhotoElement)
 }
 
 
@@ -68,9 +68,9 @@ final class Router: RouterProtocol {
         }
     }
     
-    func goDetail() {
+    func goDetail(with item: Photo.PhotoElement) {
         if let moduleBuilder = moduleBuilder, let navigationController = navigationController {
-            let detailController = moduleBuilder.buildDetailController(router: self)
+            let detailController = moduleBuilder.buildDetailController(router: self, item: item)
             navigationController.pushViewController(detailController, animated: true)
         } else {
             print("GoDetail Debug")
