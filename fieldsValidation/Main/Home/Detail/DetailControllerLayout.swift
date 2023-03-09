@@ -24,8 +24,11 @@ extension DetailController {
         containerViewLayout()
         mainViewLayout()
         imageViewLayout()
-        descriptionTitleViewLayout()
-        descriptionSubtitleViewLayout()
+        cameraNameLabelLayout()
+        roverNameLabelLayout()
+        earthDateLabelLayout()
+        landingDateLabelLayout()
+        statusLabelLayout()
     }
     
     //MARK: - Methods
@@ -66,30 +69,61 @@ extension DetailController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 30),
+            imageView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: 220),
             imageView.heightAnchor.constraint(equalToConstant: 240)
         ])
     }
     
-    private func descriptionTitleViewLayout() {
-        descriptionTitle.translatesAutoresizingMaskIntoConstraints = false
+    private func cameraNameLabelLayout() {
+        cameraNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            descriptionTitle.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
-            descriptionTitle.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
-            descriptionTitle.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20)
+            cameraNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
+            cameraNameLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            cameraNameLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20)
         ])
     }
     
-    private func descriptionSubtitleViewLayout() {
-        descritionSubtitle.translatesAutoresizingMaskIntoConstraints = false
+    private func roverNameLabelLayout() {
+        roverNameLabel.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            descritionSubtitle.topAnchor.constraint(equalTo: descriptionTitle.bottomAnchor, constant: 10),
-            descritionSubtitle.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
-            descritionSubtitle.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+            roverNameLabel.topAnchor.constraint(equalTo: cameraNameLabel.bottomAnchor, constant: 10),
+            roverNameLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            roverNameLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+        ])
+    }
+    
+    private func earthDateLabelLayout() {
+        earthDateLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            earthDateLabel.topAnchor.constraint(equalTo: roverNameLabel.bottomAnchor, constant: 15),
+            earthDateLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            earthDateLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+        ])
+    }
+    
+    private func landingDateLabelLayout() {
+        landingDateLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            landingDateLabel.topAnchor.constraint(equalTo: earthDateLabel.bottomAnchor, constant: 5),
+            landingDateLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            landingDateLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+        ])
+    }
+    
+    private func statusLabelLayout() {
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            statusLabel.centerXAnchor.constraint(equalTo: mainView.centerXAnchor),
+            statusLabel.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 20),
+            statusLabel.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20),
+            statusLabel.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -10)
         ])
     }
 }

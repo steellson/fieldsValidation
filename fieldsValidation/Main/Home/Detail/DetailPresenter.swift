@@ -9,7 +9,7 @@ import Foundation
 //MARK: - DetailControllerViewProtocol
 
 protocol DetailControllerViewProtocol: AnyObject {
-    
+    func showContent()
 }
 
 //MARK: - DetailPresenterProtocol
@@ -17,8 +17,10 @@ protocol DetailControllerViewProtocol: AnyObject {
 protocol DetailPresenterProtocol: AnyObject {
     init(view: DetailControllerViewProtocol,
          router: RouterProtocol,
-         networkManager: NetworkManagerProtocol)
-
+         networkManager: NetworkManagerProtocol,
+         item: Photo.PhotoElement)
+    
+    var item: Photo.PhotoElement? { get set }
 }
 
 
@@ -32,15 +34,19 @@ final class DetailPresenter: DetailPresenterProtocol {
     private var router: RouterProtocol?
     private var networkManager: NetworkManagerProtocol?
     
+    var item: Photo.PhotoElement?
+    
     //MARK: - Init
     
     required init(view: DetailControllerViewProtocol,
                   router: RouterProtocol,
-                  networkManager: NetworkManagerProtocol) {
+                  networkManager: NetworkManagerProtocol,
+                  item: Photo.PhotoElement) {
         
         self.view           = view
         self.router         = router
         self.networkManager = networkManager
+        self.item          = item
     }
     
     

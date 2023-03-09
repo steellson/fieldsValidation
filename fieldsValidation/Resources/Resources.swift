@@ -51,6 +51,7 @@ enum Resources {
     //MARK: - Fonts
     
     enum RFonts {
+        static let helvetica12 = UIFont(name: "Helvetica", size: 12)!
         static let helvetica15 = UIFont(name: "Helvetica", size: 15)!
         static let helvetica20 = UIFont(name: "Helvetica", size: 20)!
         

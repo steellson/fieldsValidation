@@ -48,7 +48,7 @@ final class ModuleBuilder: ModuleBuilderProtocol {
     public func buildDetailController(router: RouterProtocol, item: Photo.PhotoElement) -> UIViewController {
         let view        = DetailController()
         let networkMan  = NetworkManager()
-        let presenter   = DetailPresenter(view: view, router: router, networkManager: networkMan)
+        let presenter   = DetailPresenter(view: view, router: router, networkManager: networkMan, item: item)
         view.presenter  = presenter
         return view
     }
