@@ -29,9 +29,16 @@
 ![Registration+FieldValidation](https://github.com/steellson/fieldsValidation/blob/main/img/registrationValidation.png "Regex checks, painfully  but works")
 ### **SUCCESS!**
 ![Success reg!](https://github.com/steellson/fieldsValidation/blob/main/img/successReg.jpeg "If all fields are filled right - acc is created! Your can enter with this data on first page and transfered to Home screeen")
+### **HOME PAGE / COLLECTION**
+![Main photo collection!](https://github.com/steellson/fieldsValidation/blob/main/img/homePage%2Bcollection.png "Pick something to get more info")
+### **DETAIL PAGE / INFO CARD**
+![Information about picked photo](https://github.com/steellson/fieldsValidation/blob/main/img/detail%2Bcard.png "NASA shot + Info")
+### **DETAIL PAGE / LOADING**
+![Loading or lost connection](https://github.com/steellson/fieldsValidation/blob/main/img/detail%2Bloading.png "You can see it when loading isn't become yet")
 
 
 
 ## **Thx for your attention! ^^ **
 
 ###### _steellson_
+
